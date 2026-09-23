@@ -15,3 +15,9 @@ assert.equal(slides[1].title, 'Прочность не берётся из во�
 assert.equal(slides[3].closing, 'Здесь не слушают лекцию. Здесь сверяют опыт.');
 assert.equal(slides[6].closing, 'ГРАНАТ. Запас прочности — в своём круге.');
 assert.match(slides[5].body, /конкретную механику выберем под площадку/);
+
+const main = await readFile(new URL('../dist/main.js', import.meta.url), 'utf8');
+
+assert.match(main, /function renderSlides\(slideData\)/);
+assert.match(main, /new IntersectionObserver/);
+assert.match(main, /window\.matchMedia\('\(prefers-reduced-motion: reduce\)'\)/);
