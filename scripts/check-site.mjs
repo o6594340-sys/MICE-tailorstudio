@@ -38,3 +38,8 @@ for (const value of [
 
 assert.match(css, /--granat-red:\s*#B1000B/i);
 assert.match(css, /overflow-x:\s*clip/);
+
+const readme = await readFile(new URL('../README.md', import.meta.url), 'utf8');
+
+assert.match(readme, /python -m http\.server 4173 --directory dist/);
+assert.match(readme, /node scripts\/check-site\.mjs/);
