@@ -13,8 +13,11 @@ assert.equal(slides.length, 7);
 assert.deepEqual(slides.map(({ id }) => id), [1, 2, 3, 4, 5, 6, 7]);
 assert.equal(slides[1].title, 'Прочность не берётся из воздуха.');
 assert.equal(slides[3].closing, 'Здесь не слушают лекцию. Здесь сверяют опыт.');
-assert.equal(slides[6].closing, 'ГРАНАТ. Запас прочности — в своём круге.');
-assert.match(slides[5].body, /конкретную механику выберем под площадку/);
+assert.equal(slides[1].closing, 'Опыт, который работает дальше.');
+assert.equal(slides[4].title, 'После деловой части клуб в движении.');
+assert.equal(slides[5].title, 'Смена темпа. Выбор маршрута. Клубный зачёт.');
+assert.equal(slides[6].closing, 'ГРАНАТ. Запас прочности в сильном круге.');
+assert.doesNotMatch(JSON.stringify(slides), /сигар|Точка опоры|можно остаться собой|—/u);
 
 const main = await readFile(new URL('../dist/main.js', import.meta.url), 'utf8');
 
@@ -40,15 +43,8 @@ assert.match(css, /--granat-red:\s*#B1000B/i);
 assert.match(css, /overflow-x:\s*clip/);
 assert.match(css, /\.screen--rhythm \.screen-title\s*\{\s*max-width:\s*none;\s*font-size:\s*clamp\(2rem, 9vw, 3\.4rem\);/);
 
-for (const asset of [
-  'assets/granat-forum-hall.png',
-  'assets/granat-club-night.png',
-  'assets/granat-club-challenge.png',
-  'assets/granat-community-finale.png',
-]) {
-  assert.ok(css.includes(asset), `Missing refreshed club visual: ${asset}`);
-  await access(new URL(`../dist/${asset}`, import.meta.url));
-}
+assert.ok(css.includes('assets/granat-ruby-space.png'), 'Missing abstract club visual');
+await access(new URL('../dist/assets/granat-ruby-space.png', import.meta.url));
 
 const readme = await readFile(new URL('../README.md', import.meta.url), 'utf8');
 

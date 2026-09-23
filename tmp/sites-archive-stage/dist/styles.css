@@ -298,7 +298,6 @@ img { display: block; max-width: 100%; }
 
 .screen--experience::before,
 .screen--circle::before,
-.screen--rhythm::before,
 .screen--finale::before {
   inset: 0;
   background-position: center;
@@ -306,10 +305,9 @@ img { display: block; max-width: 100%; }
   transform: scale(1.015);
 }
 
-.screen--experience::before { background-image: url('assets/granat-ruby-space.png'); }
-.screen--circle::before { background-image: url('assets/granat-ruby-space.png'); background-position: 67% center; filter: hue-rotate(12deg) saturate(1.25); }
-.screen--rhythm::before { background: url('assets/granat-ruby-space.png') 37% center / cover; filter: hue-rotate(-8deg) saturate(0.9) contrast(1.15); }
-.screen--finale::before { background-image: url('assets/granat-ruby-space.png'); background-position: 82% center; filter: saturate(1.35) contrast(1.08); }
+.screen--experience::before { background-image: url('assets/granat-forum-hall.png'); }
+.screen--circle::before { background-image: url('assets/granat-club-night.png'); }
+.screen--finale::before { background-image: url('assets/granat-community-finale.png'); background-position: 65% center; }
 
 .screen--experience::after {
   background: linear-gradient(90deg, rgba(23, 23, 25, 0.89) 0%, rgba(23, 23, 25, 0.5) 49%, rgba(23, 23, 25, 0.08) 100%);
@@ -325,6 +323,11 @@ img { display: block; max-width: 100%; }
 .screen--circle .screen-content { width: min(100%, 48rem); }
 .screen--circle .screen-title { max-width: 13ch; }
 .screen--circle .screen-items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.screen--rhythm::before {
+  inset: 0;
+  background: url('assets/granat-club-challenge.png') center / cover;
+}
 
 .screen--rhythm::after { background: linear-gradient(96deg, rgba(23, 23, 25, 0.84) 0%, rgba(23, 23, 25, 0.47) 42%, rgba(23, 23, 25, 0.06) 100%); }
 .screen--rhythm .screen-title { max-width: 15ch; }
@@ -391,10 +394,9 @@ img { display: block; max-width: 100%; }
   .screen--sources::before { inset: auto auto 12% 1.2rem; width: calc(100% - 2.4rem); height: 1px; }
   .screen--experience::before,
   .screen--circle::before,
-  .screen--rhythm::before,
   .screen--finale::before { background-position: 62% center; }
   .screen--circle, .screen--finale { justify-items: start; }
   .screen--circle .screen-content, .screen--finale .screen-content { width: 100%; }
-  .screen--rhythm::before { background-position: 38% center; }
+  .screen--rhythm::before { background-position: 66% center; }
   .screen--finale { min-height: 100svh; }
 }
