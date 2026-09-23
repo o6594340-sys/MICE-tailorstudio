@@ -305,9 +305,9 @@ img { display: block; max-width: 100%; }
   transform: scale(1.015);
 }
 
-.screen--experience::before { background-image: url('assets/experience-room.png'); }
-.screen--circle::before { background-image: url('assets/circle-lounge.png'); }
-.screen--finale::before { background-image: url('assets/circle-lounge.png'); background-position: 65% center; }
+.screen--experience::before { background-image: url('assets/granat-forum-hall.png'); }
+.screen--circle::before { background-image: url('assets/granat-club-night.png'); }
+.screen--finale::before { background-image: url('assets/granat-community-finale.png'); background-position: 65% center; }
 
 .screen--experience::after {
   background: linear-gradient(90deg, rgba(23, 23, 25, 0.89) 0%, rgba(23, 23, 25, 0.5) 49%, rgba(23, 23, 25, 0.08) 100%);
@@ -326,7 +326,7 @@ img { display: block; max-width: 100%; }
 
 .screen--rhythm::before {
   inset: 0;
-  background: url('assets/rhythm-route.png') center / cover;
+  background: url('assets/granat-club-challenge.png') center / cover;
 }
 
 .screen--rhythm::after { background: linear-gradient(96deg, rgba(23, 23, 25, 0.84) 0%, rgba(23, 23, 25, 0.47) 42%, rgba(23, 23, 25, 0.06) 100%); }
@@ -387,6 +387,7 @@ img { display: block; max-width: 100%; }
   .screen::after { background: linear-gradient(180deg, rgba(23, 23, 25, 0.5), rgba(23, 23, 25, 0.88) 69%, #171719); }
   .screen-index { right: 0; }
   .screen-title { font-size: clamp(2.2rem, 11vw, 3.4rem); }
+  .screen--rhythm .screen-title { max-width: none; font-size: clamp(2rem, 9vw, 3.4rem); }
   .screen-body { font-size: 1rem; }
   .screen-items { grid-template-columns: 1fr !important; gap: 1.15rem; margin-top: 1.8rem; }
   .screen-item { min-height: 0 !important; transform: none !important; }

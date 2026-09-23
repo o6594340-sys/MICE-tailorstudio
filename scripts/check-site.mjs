@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 
 const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
@@ -38,6 +38,17 @@ for (const value of [
 
 assert.match(css, /--granat-red:\s*#B1000B/i);
 assert.match(css, /overflow-x:\s*clip/);
+assert.match(css, /\.screen--rhythm \.screen-title\s*\{\s*max-width:\s*none;\s*font-size:\s*clamp\(2rem, 9vw, 3\.4rem\);/);
+
+for (const asset of [
+  'assets/granat-forum-hall.png',
+  'assets/granat-club-night.png',
+  'assets/granat-club-challenge.png',
+  'assets/granat-community-finale.png',
+]) {
+  assert.ok(css.includes(asset), `Missing refreshed club visual: ${asset}`);
+  await access(new URL(`../dist/${asset}`, import.meta.url));
+}
 
 const readme = await readFile(new URL('../README.md', import.meta.url), 'utf8');
 
