@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Гранат">
+  <defs>
+    <linearGradient id="granat-gradient" x1="10%" y1="92%" x2="88%" y2="8%">
+      <stop offset="0%" stop-color="#6e000b"/>
+      <stop offset="54%" stop-color="#ed0044"/>
+      <stop offset="100%" stop-color="#ffbfd3"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#granat-gradient)" d="M4 18 18 4h20v25l13-13 9 9-19 19h19v12l-14 4H25l-9-9V30L4 42Z"/>
+  <path fill="url(#granat-gradient)" d="M4 46 18 34h20v26H18L4 46Zm38-12h18v22L48 60H42Z"/>
+  <path fill="#08090d" d="M28 4h8v29h-8zM16 32h46v4H16z"/>
+</svg>
