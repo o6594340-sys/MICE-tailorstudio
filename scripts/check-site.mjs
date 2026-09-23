@@ -21,3 +21,20 @@ const main = await readFile(new URL('../dist/main.js', import.meta.url), 'utf8')
 assert.match(main, /function renderSlides\(slideData\)/);
 assert.match(main, /new IntersectionObserver/);
 assert.match(main, /window\.matchMedia\('\(prefers-reduced-motion: reduce\)'\)/);
+
+const css = await readFile(new URL('../dist/styles.css', import.meta.url), 'utf8');
+
+for (const value of [
+  ':root',
+  '.screen--experience',
+  '.screen--circle',
+  '.screen--rhythm',
+  '.screen--finale',
+  '@media (prefers-reduced-motion: reduce)',
+  '@media (max-width: 640px)',
+]) {
+  assert.ok(css.includes(value), `Missing ${value}`);
+}
+
+assert.match(css, /--granat-red:\s*#B1000B/i);
+assert.match(css, /overflow-x:\s*clip/);

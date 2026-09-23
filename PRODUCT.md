@@ -35,7 +35,7 @@ The page is reviewed as a premium client-facing event concept on desktop and mob
 
 ## Brand Commitments
 
-Use the Granat TNPRO lookbook supplied in the sibling project folder: deep black, corporate red `#B1000B`, red-pink gradient, approved Granat mark and TNPRO × Granat co-brand hierarchy. Keep the tone adult, status-led and restrained. Exclude literal pomegranates outside the mark, Oriental decor, gold, concrete, camouflage and banal corporate-banquet imagery.
+Use the Granat TNPRO lookbook supplied in the sibling project folder: deep black only as a framing colour, corporate red `#B1000B`, red-pink gradient, approved Granat mark and TNPRO × Granat co-brand hierarchy. The people are self-made, energetic, relatively young working professionals: the visual tone must be warm, clear, active and human, never old-money, cigar-lounge luxury or an exclusive-nightclub fantasy. Exclude literal pomegranates outside the mark, Oriental decor, gold, concrete, camouflage and banal corporate-banquet imagery.
 
 ## Evidence on Hand
 
@@ -46,8 +46,8 @@ Use the Granat TNPRO lookbook supplied in the sibling project folder: deep black
 ## Product Principles
 
 1. Show a directed emotional arc, not a timetable.
-2. Let professional equality and chosen pace lead over spectacle.
-3. Use atmosphere to prove the concept while preserving production honesty.
+2. Let self-made professional equality, movement and chosen pace lead over spectacle.
+3. Use warm light and real human energy to prove the concept while preserving production honesty.
 4. Make the site usable and complete at a mobile viewport as well as on a large desktop.
 
 ## Accessibility & Inclusion
