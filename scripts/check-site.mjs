@@ -59,8 +59,11 @@ const main = await readFile(new URL('../dist/main.js', import.meta.url), 'utf8')
 assert.match(main, /function parseVenueRoute\(/);
 assert.match(main, /venueDetails\.find/);
 assert.match(main, /← К площадкам/);
-assert.match(main, /role', 'tablist'/);
+assert.match(main, /function renderVenueSection\(/);
+assert.match(main, /\['general', 'Общее'\]/);
 assert.match(main, /'Размещение и деловая часть'/);
+assert.match(main, /'Вечер и сценарий'/);
+assert.doesNotMatch(main, /role', 'tablist'/);
 assert.doesNotMatch(main, /card\.href = `#screen-/);
 assert.match(main, /window\.location\.replace\('#screen-4'\)/);
 assert.match(main, /window\.addEventListener\('hashchange', renderRoute\)/);

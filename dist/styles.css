@@ -592,6 +592,23 @@ img { display: block; max-width: 100%; }
   margin-top: 1.35rem;
 }
 
+.venue-section {
+  margin-top: clamp(2.25rem, 6vw, 4rem);
+}
+
+.venue-section + .venue-section {
+  padding-top: clamp(2.25rem, 6vw, 4rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.venue-section__title {
+  margin: 0 0 1.35rem;
+  color: #ff8eb0;
+  font: 700 0.78rem/1 var(--body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .venue-tab-content + .venue-tab-content {
   margin-top: 2.25rem;
   padding-top: 2.25rem;

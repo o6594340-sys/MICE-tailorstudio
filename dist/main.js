@@ -132,9 +132,9 @@ function renderSlide(slide) {
   return section;
 }
 
-function renderDetailBlock(slide) {
+function renderDetailBlock(slide, headingTag = 'h2') {
   const block = createElement('article', 'venue-tab-content');
-  const title = createElement('h2', 'venue-tab-content__title', slide.title);
+  const title = createElement(headingTag, 'venue-tab-content__title', slide.title);
 
   block.append(title);
   if (slide.eyebrow) block.append(createElement('p', 'screen-context', slide.eyebrow));
@@ -150,21 +150,29 @@ function renderDetailBlock(slide) {
   return block;
 }
 
+function renderVenueSection(venue, key, label) {
+  const section = createElement('section', 'venue-section');
+  const title = createElement('h2', 'venue-section__title', label);
+
+  section.id = `venue-${venue.slug}-${key}`;
+  section.setAttribute('aria-labelledby', `${section.id}-title`);
+  title.id = `${section.id}-title`;
+  venue.tabs[key].slides.forEach((slide) => section.append(renderDetailBlock(slide, 'h3')));
+  section.prepend(title);
+  return section;
+}
+
 function renderVenueDetail(venue) {
   const section = document.createElement('section');
   const content = createElement('div', 'screen-content venue-detail__content');
   const back = createElement('a', 'venue-back-link', '← К площадкам');
   const title = createElement('h1', 'screen-title', venue.title);
   const externalLink = createElement('a', 'venue-external-link', 'Сайт площадки ↗');
-  const tabList = createElement('div', 'venue-tabs');
-  const panelRoot = createElement('div', 'venue-tab-panels');
-  const tabs = [
+  const sections = [
     ['general', 'Общее'],
     ['facts', 'Размещение и деловая часть'],
-    ['scenario', 'Сценарий'],
+    ['scenario', 'Вечер и сценарий'],
   ];
-  const buttons = [];
-  const panels = [];
 
   section.className = 'screen venue-detail screen--venue-portrait';
   section.id = `venue-${venue.slug}`;
@@ -174,53 +182,7 @@ function renderVenueDetail(venue) {
   externalLink.href = venue.externalUrl;
   externalLink.target = '_blank';
   externalLink.rel = 'noreferrer';
-  tabList.setAttribute('role', 'tablist');
-  tabList.setAttribute('aria-label', `Разделы площадки ${venue.title}`);
-
-  const selectTab = (index) => {
-    buttons.forEach((button, buttonIndex) => {
-      const selected = buttonIndex === index;
-      button.setAttribute('aria-selected', String(selected));
-      button.tabIndex = selected ? 0 : -1;
-      panels[buttonIndex].hidden = !selected;
-    });
-  };
-
-  tabs.forEach(([key, label], index) => {
-    const button = createElement('button', 'venue-tab', label);
-    const panel = createElement('section', 'venue-tab-panel');
-    const panelId = `venue-${venue.slug}-${key}`;
-
-    button.type = 'button';
-    button.id = `${panelId}-tab`;
-    button.setAttribute('role', 'tab');
-    button.setAttribute('aria-controls', panelId);
-    button.setAttribute('aria-selected', String(index === 0));
-    button.tabIndex = index === 0 ? 0 : -1;
-    panel.id = panelId;
-    panel.setAttribute('role', 'tabpanel');
-    panel.setAttribute('aria-labelledby', button.id);
-    panel.hidden = index !== 0;
-    venue.tabs[key].slides.forEach((slide) => panel.append(renderDetailBlock(slide)));
-
-    button.addEventListener('click', () => selectTab(index));
-    button.addEventListener('keydown', (event) => {
-      const keyOffset = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
-      const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : keyOffset === undefined ? null : (index + keyOffset + buttons.length) % buttons.length;
-
-      if (nextIndex === null) return;
-      event.preventDefault();
-      selectTab(nextIndex);
-      buttons[nextIndex].focus();
-    });
-
-    buttons.push(button);
-    panels.push(panel);
-    tabList.append(button);
-    panelRoot.append(panel);
-  });
-
-  content.append(back, title, externalLink, tabList, panelRoot);
+  content.append(back, title, externalLink, ...sections.map(([key, label]) => renderVenueSection(venue, key, label)));
   section.append(content);
   return section;
 }
