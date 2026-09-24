@@ -95,6 +95,9 @@ assert.match(css, /\.screen--comparison/);
 assert.match(css, /\.catalogue-cards/);
 assert.match(css, /\.catalogue-card--finalist/);
 assert.match(css, /\.catalogue-card__action/);
+assert.doesNotMatch(css, /--bone|--mono/);
+assert.match(css, /color:\s*var\(--text\)/);
+assert.match(css, /font-family:\s*var\(--body\)/);
 assert.match(css, /\.screen--rhythm \.screen-title\s*\{\s*max-width:\s*none;\s*font-size:\s*clamp\(2rem, 9vw, 3\.4rem\);/);
 
 assert.ok(css.includes('assets/granat-ruby-space.png'), 'Missing abstract club visual');
