@@ -48,6 +48,10 @@ const venues = [
         { src: 'assets/peresvet-stravinsky.jpg', alt: 'Конгресс-холл «Стравинский» курорта «Пересвет»', caption: 'Деловая часть · конгресс-холл «Стравинский»' },
         { src: 'assets/peresvet-room.png', alt: 'Номер курорта «Пересвет»', caption: 'Размещение · номер' },
       ],
+      scenarioMedia: [
+        { src: 'assets/peresvett-ozero.png', alt: 'Пространство Ozero курорта «Пересвет»', caption: 'Вечер 1 · Ozero' },
+        { src: 'assets/peresvet-utesov.jpg', alt: 'Пространство «Утёсов» курорта «Пересвет»', caption: 'Вечер 2 · «Утёсов»' },
+      ],
       items: [{ title: 'Маршрут', text: 'Корпуса группы, переходы, SPA, лёд, боулинг и теннис собираем в единый график.' }],
       closing: 'Финалист: инфраструктура, 90 single и разные вечерние пространства.',
     }),
