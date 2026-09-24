@@ -116,14 +116,45 @@ const les = [
   slide(32, 'venue-decision', 'LES Art Resort. Сценарий.', { venue: 'LES Art Resort', items: [{ title: 'Два вечера', text: 'Большой «Оптимус», 300 м²: банкет в первый вечер и фуршет во второй.' }, { title: 'После основной программы', text: 'Три дорожки боулинга и три стола американского пула до 02:00.' }, { title: '«Точный ход»', text: 'Мобильный стрелковый модуль в выделенной зоне, как часть второго дня.' }], closing: 'Резерв: готовый indoor-маршрут с деловым залом, двумя вечерами и игровой частью.', media: [{ src: 'assets/les-banquet-hall.jpg', alt: 'Банкетный зал LES Art Resort', caption: 'Вечерний формат · большой зал для банкетной рассадки' }] }),
 ];
 
-export const slides = [
+const allSlides = [
   slide(1, 'title', 'ГРАНАТ', { displayTitle: 'Запас прочности', eyebrow: 'Встреча клуба подрядчиков ТЕХНОНИКОЛЬ', meta: 'Ноябрь 2026 · Подмосковье' }),
   slide(2, 'sources', 'ГРАНАТ. Запас прочности.', { body: 'Опыт, профессиональный круг, фокус, умение действовать командой. Площадка обязана выдерживать весь сценарий.', items: [{ title: 'Опыт', text: 'Реальные решения и честный разговор.' }, { title: 'Круг', text: 'Качество, репутация и слово.' }, { title: 'Точный ход', text: 'Расчёт, фокус и общий зачёт.' }] }),
   slide(3, 'experience', 'Три дня, один сильный маршрут.', { items: [{ title: 'День 1', text: 'Деловая программа, награждение, первый вечер.' }, { title: 'День 2', text: '«Точный ход», свободные маршруты, второй вечер.' }, { title: 'День 3', text: 'Завтрак, личные разговоры, организованный выезд.' }] }),
-  slide(4, 'catalogue', 'Семь площадок. Три рекомендации.', { body: 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.', venueCards: [{ title: 'Moscow Country Club', reason: 'Близко к Москве, клубный формат.', screen: 6, finalist: true }, { title: 'Пересвет', reason: 'Масштаб, спорт и два вечера.', screen: 10, finalist: true }, { title: '«Ареал»', reason: 'Единый indoor-маршрут.', screen: 14, finalist: true }, { title: 'FreshWind', reason: 'Компактный маршрут рядом с Москвой.', screen: 18 }, { title: 'AZIMUT Переславль', reason: '', screen: 22 }, { title: '«Завидово»', reason: 'Территория и стрелковый центр.', screen: 26 }, { title: 'LES Art Resort', reason: 'Развитая indoor-инфраструктура.', screen: 30 }] }),
+  slide(4, 'catalogue', 'Семь площадок. Три рекомендации.', { body: 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.', venueCards: [{ title: 'Moscow Country Club', reason: 'Близко к Москве, клубный формат.', slug: 'moscow-country-club', finalist: true }, { title: 'Пересвет', reason: 'Масштаб, спорт и два вечера.', slug: 'peresvet', finalist: true }, { title: '«Ареал»', reason: 'Единый indoor-маршрут.', slug: 'areal', finalist: true }, { title: 'FreshWind', reason: 'Компактный маршрут рядом с Москвой.', slug: 'freshwind' }, { title: 'AZIMUT Переславль', reason: '', slug: 'azimut-pereslavl' }, { title: '«Завидово»', reason: 'Территория и стрелковый центр.', slug: 'zavidovo' }, { title: 'LES Art Resort', reason: 'Развитая indoor-инфраструктура.', slug: 'les-art-resort' }] }),
   slide(5, 'finale', 'Три финалиста с разными маршрутами события', { items: [{ title: 'Moscow Country Club', text: 'Закрытый клубный характер и самая лёгкая дорога.' }, { title: 'Пересвет', text: 'Масштаб, спорт и два сильных вечерних пространства.' }, { title: '«Ареал»', text: 'Собранный indoor-маршрут и низкий погодный риск.' }] }),
   ...venues,
   ...les,
   slide(33, 'comparison', 'Сравнение финалистов и резервов по ключевым параметрам', { items: [{ title: 'Финалисты', text: 'MCC: близость к Москве и клубный формат. Пересвет: масштаб, спорт, два вечера. «Ареал»: единый indoor-маршрут.' }, { title: 'Резервы', text: 'FreshWind: компактный формат. «Завидово»: стрелковый центр и большая территория. LES: развитая инфраструктура.' }], closing: 'Все цифры: ориентиры для выбора сценария и площадки.' }),
   slide(34, 'finale', 'Финальный шорт-лист', { items: [{ title: '1. Moscow Country Club', text: 'Клубный формат, быстрая дорога, взрослая интонация.' }, { title: '2. Пересвет', text: 'Масштабный сценарий и разные вечерние пространства.' }, { title: '3. «Ареал»', text: 'Собранный indoor-маршрут и низкий погодный риск.' }], closing: 'Выбор зависит от приоритета: близость, масштаб или единый маршрут под одной крышей.' }),
 ];
+
+const venueSlugs = {
+  'Moscow Country Club': 'moscow-country-club',
+  'Пересвет': 'peresvet',
+  '«Ареал»': 'areal',
+  FreshWind: 'freshwind',
+  'AZIMUT Переславль': 'azimut-pereslavl',
+  '«Завидово»': 'zavidovo',
+  'LES Art Resort': 'les-art-resort',
+};
+
+function createVenueDetails(venue) {
+  const venueSlides = allSlides.filter((slideData) => slideData.venue === venue);
+  const portrait = venueSlides.find(({ scene }) => scene === 'venue-portrait');
+  const facts = venueSlides.find(({ scene }) => scene === 'venue-facts');
+  const scenario = venueSlides.filter(({ scene }) => scene !== 'venue-portrait' && scene !== 'venue-facts');
+
+  return {
+    slug: venueSlugs[venue],
+    title: venue,
+    externalUrl: venueLinks[venue],
+    tabs: {
+      general: { slides: [portrait] },
+      facts: { slides: [facts] },
+      scenario: { slides: scenario },
+    },
+  };
+}
+
+export const slides = allSlides.slice(0, 4);
+export const venueDetails = Object.keys(venueSlugs).map(createVenueDetails);
