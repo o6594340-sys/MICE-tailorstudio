@@ -66,6 +66,28 @@ function renderMedia(media = []) {
   return gallery;
 }
 
+function renderCatalogueCards(cards = []) {
+  if (!cards.length) {
+    return null;
+  }
+
+  const list = createElement('nav', 'catalogue-cards');
+  list.setAttribute('aria-label', 'Площадки');
+
+  cards.forEach(({ title, screen, finalist }) => {
+    const card = createElement('a', finalist ? 'catalogue-card catalogue-card--finalist' : 'catalogue-card');
+    const status = createElement('span', 'catalogue-card__status', finalist ? 'Финалист' : 'Резерв');
+    const name = createElement('h2', 'catalogue-card__title', title);
+
+    card.href = `#screen-${screen}`;
+    card.setAttribute('aria-label', `${title}, перейти к экрану ${screen}`);
+    card.append(status, name);
+    list.append(card);
+  });
+
+  return list;
+}
+
 function renderVenueNavigation(slide) {
   if (!slide.venue) {
     return null;
@@ -124,6 +146,12 @@ function renderSlide(slide) {
 
   if (media) {
     content.append(media);
+  }
+
+  const catalogueCards = renderCatalogueCards(slide.venueCards);
+
+  if (catalogueCards) {
+    content.append(catalogueCards);
   }
 
   const itemList = renderItems(slide.items);
