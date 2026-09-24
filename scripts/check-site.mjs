@@ -34,8 +34,10 @@ assert.deepEqual(tabSlides('FreshWind', 'facts')[0].media.map(({ src }) => src),
 assert.equal(tabSlides('FreshWind', 'scenario')[0].media[0].src, 'assets/freshwind-bowling.jpg');
 assert.equal(tabSlides('Moscow Country Club', 'facts')[0].media[0].src, 'assets/mcc-forest-country-hall.jpg');
 assert.equal(tabSlides('Moscow Country Club', 'scenario')[0].media[0].src, 'assets/mcc-accents.jpg');
+assert.equal(tabSlides('Moscow Country Club', 'general')[0].media.at(-1).src, 'assets/mcc-hero.jpg');
 assert.equal(tabSlides('Пересвет', 'general')[0].media[0].src, 'assets/peresvet-night.jpg');
 assert.equal(tabSlides('Пересвет', 'facts')[0].media[0].src, 'assets/peresvet-stravinsky.jpg');
+assert.equal(tabSlides('Пересвет', 'facts')[0].media.at(-1).src, 'assets/peresvet-room.png');
 assert.equal(tabSlides('AZIMUT Переславль', 'facts')[0].media[0].src, 'assets/azimut-zalesskiy-theatre.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'scenario')[0].media[0].src, 'assets/azimut-pereslavl-banquet.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'general')[0].media.at(-1).src, 'assets/azimut-hero.jpg');
