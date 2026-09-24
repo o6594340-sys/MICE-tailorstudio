@@ -36,6 +36,7 @@ assert.deepEqual(tabSlides('FreshWind', 'scenario')[0].media.map(({ src }) => sr
   'assets/freshwind-fresh.png',
 ]);
 assert.equal(tabSlides('Moscow Country Club', 'facts')[0].media[0].src, 'assets/mcc-forest-country-hall.jpg');
+assert.equal(tabSlides('Moscow Country Club', 'facts')[0].media.at(-1).src, 'assets/mcc-room.jpg');
 assert.equal(tabSlides('Moscow Country Club', 'scenario')[0].media[0].src, 'assets/mcc-accents.jpg');
 assert.equal(tabSlides('Moscow Country Club', 'general')[0].media.at(-1).src, 'assets/mcc-hero.jpg');
 assert.equal(tabSlides('Пересвет', 'general')[0].media[0].src, 'assets/peresvet-night.jpg');

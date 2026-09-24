@@ -28,6 +28,7 @@ const venues = [
     [{ title: 'Вечера', text: 'Ресторан «Акценты», 284 м², до 130 гостей. Вечерняя программа до 02:00.' }, { title: '«Точный ход»', text: 'Привозной турнир на outdoor-зоне с обязательным indoor-планом B.' }, { title: 'Маршруты', text: 'Бассейн, сауна, хамам и тренажёрный зал.' }],
     { items: [{ title: 'Сценарий', text: 'Деловая часть, клубный вечер, outdoor-модуль с indoor-планом B.' }], closing: 'Финалист: близко к Москве, клубный формат, гибкое размещение.', factsClosing: 'Пересетап занимает до 2,5 часов.', factsMedia: [
       { src: 'assets/mcc-forest-country-hall.jpg', alt: 'Forest Country Hall Moscow Country Club', caption: 'Деловая часть · Forest Country Hall' },
+      { src: 'assets/mcc-room.jpg', alt: 'Номер Moscow Country Club', caption: 'Размещение · номер' },
     ], scenarioMedia: [
       { src: 'assets/mcc-accents.jpg', alt: 'Ресторан «Акценты» Moscow Country Club', caption: 'Вечер 1 и 2 · ресторан «Акценты»' },
     ] }),
