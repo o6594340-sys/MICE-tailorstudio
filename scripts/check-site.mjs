@@ -18,13 +18,14 @@ assert.equal(slides[33].title, 'Сравнение финалистов и ре�
 assert.equal(slides[34].title, 'Финальный шорт-лист');
 assert.doesNotMatch(JSON.stringify(slides), /Критерии выбора площадки/u);
 assert.equal(slides[2].body, 'Опыт, профессиональный круг, фокус, умение действовать командой. Площадка обязана выдерживать весь сценарий.');
-assert.equal(slides[4].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, бюджет, ограничения.');
+assert.equal(slides[4].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
 assert.deepEqual(slides[4].venueCards.map(({ screen }) => screen), [7, 11, 15, 19, 23, 27, 31]);
 assert.deepEqual([...new Set(slides.filter(({ venue }) => venue).map(({ venue }) => venue))], [
   'Moscow Country Club', 'Пересвет', '«Ареал»', 'FreshWind', 'AZIMUT Переславль', '«Завидово»', 'LES Art Resort',
 ]);
 assert.doesNotMatch(JSON.stringify(slides), /Изумрудн|сигар|Точка опоры|можно остаться собой|—/u);
 assert.doesNotMatch(JSON.stringify(slides), /Подтвердить|подтвердить|подтвержд|уточнить|Уточнить|запросить|Запросить|требует|Требует|спорного НДС|вопросы к площадкам/u);
+assert.doesNotMatch(JSON.stringify(slides), /₽|бюджет|стоимост|ценов|\bАК\b|экономич|доплат/u);
 assert.equal(Object.keys(venueLinks).length, 7);
 assert.equal(venueLinks['Пересвет'], 'https://peresvethotel.ru/');
 const freshWindSlides = slides.filter(({ venue }) => venue === 'FreshWind');
@@ -105,7 +106,6 @@ assert.match(css, /\.screen--rhythm \.screen-title\s*\{\s*max-width:\s*none;\s*f
 
 assert.ok(css.includes('assets/granat-ruby-space.png'), 'Missing abstract club visual');
 assert.match(JSON.stringify(slides), /Близко к Москве, клубный формат\./);
-assert.match(JSON.stringify(slides), /Самый экономичный вариант\./);
 await access(new URL('../dist/assets/granat-ruby-space.png', import.meta.url));
 
 const readme = await readFile(new URL('../README.md', import.meta.url), 'utf8');
