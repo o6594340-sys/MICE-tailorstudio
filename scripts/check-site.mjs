@@ -9,17 +9,17 @@ assert.match(html, /<div id="slides-root"><\/div>/);
 
 const { slides, venueLinks } = await import(new URL('../dist/content.js', import.meta.url));
 
-assert.equal(slides.length, 35);
-assert.deepEqual(slides.map(({ id }) => id), Array.from({ length: 35 }, (_, index) => index + 1));
-assert.equal(slides[1].title, 'Условия для сильного разговора и нормального отдыха');
-assert.equal(slides[4].title, 'Семь площадок. Три рекомендации.');
-assert.equal(slides[5].title, 'Три финалиста с разными маршрутами события');
-assert.equal(slides[33].title, 'Сравнение финалистов и резервов по ключевым параметрам');
-assert.equal(slides[34].title, 'Финальный шорт-лист');
-assert.doesNotMatch(JSON.stringify(slides), /Критерии выбора площадки/u);
-assert.equal(slides[2].body, 'Опыт, профессиональный круг, фокус, умение действовать командой. Площадка обязана выдерживать весь сценарий.');
-assert.equal(slides[4].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
-assert.deepEqual(slides[4].venueCards.map(({ screen }) => screen), [7, 11, 15, 19, 23, 27, 31]);
+assert.equal(slides.length, 34);
+assert.deepEqual(slides.map(({ id }) => id), Array.from({ length: 34 }, (_, index) => index + 1));
+assert.equal(slides[1].title, 'ГРАНАТ. Запас прочности.');
+assert.equal(slides[3].title, 'Семь площадок. Три рекомендации.');
+assert.equal(slides[4].title, 'Три финалиста с разными маршрутами события');
+assert.equal(slides[32].title, 'Сравнение финалистов и резервов по ключевым параметрам');
+assert.equal(slides[33].title, 'Финальный шорт-лист');
+assert.doesNotMatch(JSON.stringify(slides), /Условия для сильного разговора и нормального отдыха/u);
+assert.equal(slides[1].body, 'Опыт, профессиональный круг, фокус, умение действовать командой. Площадка обязана выдерживать весь сценарий.');
+assert.equal(slides[3].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
+assert.deepEqual(slides[3].venueCards.map(({ screen }) => screen), [6, 10, 14, 18, 22, 26, 30]);
 assert.deepEqual([...new Set(slides.filter(({ venue }) => venue).map(({ venue }) => venue))], [
   'Moscow Country Club', 'Пересвет', '«Ареал»', 'FreshWind', 'AZIMUT Переславль', '«Завидово»', 'LES Art Resort',
 ]);
@@ -71,8 +71,8 @@ assert.match(main, /catalogue-card--finalist/);
 assert.match(main, /catalogue-card__reason/);
 assert.match(main, /Открыть площадку →/);
 assert.match(main, /href = `#screen-\$\{screen\}`/);
-assert.match(main, /catalogueLink\.href = '#screen-5'/);
-assert.match(main, /comparisonLink\.href = '#screen-34'/);
+assert.match(main, /catalogueLink\.href = '#screen-4'/);
+assert.match(main, /comparisonLink\.href = '#screen-33'/);
 assert.match(main, /new IntersectionObserver/);
 assert.match(main, /window\.matchMedia\('\(prefers-reduced-motion: reduce\)'\)/);
 
