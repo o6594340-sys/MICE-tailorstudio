@@ -1,4 +1,4 @@
-import { slides } from './content.js';
+import { slides, venueLinks } from './content.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -44,6 +44,51 @@ function renderItems(items) {
   return list;
 }
 
+function renderMedia(media = []) {
+  if (!media.length) {
+    return null;
+  }
+
+  const gallery = createElement('div', 'screen-media');
+
+  media.forEach(({ src, alt, caption }) => {
+    const figure = createElement('figure', 'screen-media__figure');
+    const image = document.createElement('img');
+    const label = createElement('figcaption', 'screen-media__caption', caption);
+
+    image.src = src;
+    image.alt = alt;
+    image.loading = 'lazy';
+    figure.append(image, label);
+    gallery.append(figure);
+  });
+
+  return gallery;
+}
+
+function renderVenueNavigation(slide) {
+  if (!slide.venue) {
+    return null;
+  }
+
+  const navigation = createElement('nav', 'venue-navigation');
+  navigation.setAttribute('aria-label', `Навигация по площадке ${slide.venue}`);
+
+  const catalogueLink = createElement('a', 'venue-navigation__link', 'К площадкам');
+  catalogueLink.href = '#screen-6';
+
+  const comparisonLink = createElement('a', 'venue-navigation__link', 'К сравнению');
+  comparisonLink.href = '#screen-35';
+
+  const siteLink = createElement('a', 'venue-navigation__link', 'Сайт площадки ↗');
+  siteLink.href = venueLinks[slide.venue];
+  siteLink.target = '_blank';
+  siteLink.rel = 'noreferrer';
+
+  navigation.append(catalogueLink, comparisonLink, siteLink);
+  return navigation;
+}
+
 function renderSlide(slide) {
   const section = document.createElement('section');
   const content = createElement('div', 'screen-content');
@@ -75,6 +120,12 @@ function renderSlide(slide) {
     content.append(createElement('p', 'screen-body', slide.body));
   }
 
+  const media = renderMedia(slide.media);
+
+  if (media) {
+    content.append(media);
+  }
+
   const itemList = renderItems(slide.items);
 
   if (itemList) {
@@ -83,6 +134,12 @@ function renderSlide(slide) {
 
   if (slide.closing) {
     content.append(createElement('p', 'screen-closing', slide.closing));
+  }
+
+  const venueNavigation = renderVenueNavigation(slide);
+
+  if (venueNavigation) {
+    content.append(venueNavigation);
   }
 
   section.append(content);
