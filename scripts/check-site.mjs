@@ -38,9 +38,13 @@ assert.equal(tabSlides('Пересвет', 'general')[0].media[0].src, 'assets/p
 assert.equal(tabSlides('Пересвет', 'facts')[0].media[0].src, 'assets/peresvet-stravinsky.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'facts')[0].media[0].src, 'assets/azimut-zalesskiy-theatre.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'scenario')[0].media[0].src, 'assets/azimut-pereslavl-banquet.jpg');
+assert.equal(tabSlides('AZIMUT Переславль', 'general')[0].media.at(-1).src, 'assets/azimut-hero.jpg');
+assert.equal(tabSlides('AZIMUT Переславль', 'facts')[0].media.at(-1).src, 'assets/azimut-room.jpg');
 assert.equal(tabSlides('«Ареал»', 'general')[0].media[0].src, 'assets/areal-marmelada.jpg');
 assert.equal(tabSlides('«Ареал»', 'facts')[0].media[0].src, 'assets/areal-dunay.jpg');
+assert.equal(tabSlides('«Ареал»', 'facts')[0].media.at(-1).src, 'assets/areal-room.jpg');
 assert.equal(tabSlides('«Ареал»', 'scenario')[0].media[0].src, 'assets/areal-kurshevel.jpg');
+assert.equal(tabSlides('FreshWind', 'general')[0].media.at(-1).src, 'assets/freshwind-hero.jpg');
 assert.equal(tabSlides('«Завидово»', 'scenario')[1].closing, 'Резерв: сильный модуль «Точный ход», но длинный маршрут и погодный риск.');
 assert.equal(tabSlides('«Завидово»', 'facts')[0].media[0].src, 'assets/zavidovo-chaika.jpg');
 assert.equal(tabSlides('«Завидово»', 'scenario')[0].media[0].src, 'assets/zavidovo-sadko.jpg');
@@ -48,6 +52,8 @@ assert.equal(tabSlides('«Завидово»', 'scenario')[0].media[1].src, 'ass
 assert.equal(tabSlides('LES Art Resort', 'general')[0].media[0].src, 'assets/les-placeholder-resort.png');
 assert.equal(tabSlides('LES Art Resort', 'facts')[0].media[0].src, 'assets/les-conference-hall.jpg');
 assert.equal(tabSlides('LES Art Resort', 'scenario')[0].media[0].src, 'assets/les-banquet-hall.jpg');
+assert.equal(tabSlides('LES Art Resort', 'general')[0].media.at(-1).src, 'assets/lesart-hero.jpeg');
+assert.equal(tabSlides('LES Art Resort', 'facts')[0].media.at(-1).src, 'assets/lesart-room.jpg');
 assert.match(tabSlides('LES Art Resort', 'facts')[0].items[1].text, /455 м²/u);
 assert.match(tabSlides('LES Art Resort', 'scenario')[0].items[0].text, /«Оптимус», 300 м²/u);
 
