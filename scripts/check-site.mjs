@@ -66,6 +66,8 @@ assert.match(main, /function renderVenueNavigation/);
 assert.match(main, /function renderMedia/);
 assert.match(main, /function renderCatalogueCards/);
 assert.match(main, /catalogue-card--finalist/);
+assert.match(main, /catalogue-card__reason/);
+assert.match(main, /Открыть площадку →/);
 assert.match(main, /href = `#screen-\$\{screen\}`/);
 assert.match(main, /new IntersectionObserver/);
 assert.match(main, /window\.matchMedia\('\(prefers-reduced-motion: reduce\)'\)/);
@@ -92,9 +94,12 @@ assert.match(css, /\.screen--venue-scenario/);
 assert.match(css, /\.screen--comparison/);
 assert.match(css, /\.catalogue-cards/);
 assert.match(css, /\.catalogue-card--finalist/);
+assert.match(css, /\.catalogue-card__action/);
 assert.match(css, /\.screen--rhythm \.screen-title\s*\{\s*max-width:\s*none;\s*font-size:\s*clamp\(2rem, 9vw, 3\.4rem\);/);
 
 assert.ok(css.includes('assets/granat-ruby-space.png'), 'Missing abstract club visual');
+assert.match(JSON.stringify(slides), /Близко к Москве, клубный формат\./);
+assert.match(JSON.stringify(slides), /Самый экономичный вариант\./);
 await access(new URL('../dist/assets/granat-ruby-space.png', import.meta.url));
 
 const readme = await readFile(new URL('../README.md', import.meta.url), 'utf8');

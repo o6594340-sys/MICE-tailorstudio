@@ -74,14 +74,20 @@ function renderCatalogueCards(cards = []) {
   const list = createElement('nav', 'catalogue-cards');
   list.setAttribute('aria-label', 'Площадки');
 
-  cards.forEach(({ title, screen, finalist }) => {
+  cards.forEach(({ title, reason, screen, finalist }) => {
     const card = createElement('a', finalist ? 'catalogue-card catalogue-card--finalist' : 'catalogue-card');
-    const status = createElement('span', 'catalogue-card__status', finalist ? 'Финалист' : 'Резерв');
     const name = createElement('h2', 'catalogue-card__title', title);
+    const explanation = createElement('p', 'catalogue-card__reason', reason);
+    const action = createElement('span', 'catalogue-card__action', 'Открыть площадку →');
 
     card.href = `#screen-${screen}`;
-    card.setAttribute('aria-label', `${title}, перейти к экрану ${screen}`);
-    card.append(status, name);
+    card.setAttribute('aria-label', `${title}: ${reason} Открыть площадку, экран ${screen}`);
+
+    if (finalist) {
+      card.append(createElement('span', 'catalogue-card__status', 'Рекомендуем'));
+    }
+
+    card.append(name, explanation, action);
     list.append(card);
   });
 

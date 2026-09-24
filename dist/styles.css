@@ -406,8 +406,8 @@ img { display: block; max-width: 100%; }
   display: flex;
   min-height: clamp(7rem, 11vw, 9.5rem);
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.15rem;
+  justify-content: flex-start;
+  gap: 0.7rem;
   padding: clamp(1.15rem, 2.2vw, 1.75rem);
   border: 1px solid rgba(255, 255, 255, 0.22);
   background: rgba(20, 20, 23, 0.72);
@@ -445,6 +445,24 @@ img { display: block; max-width: 100%; }
   font-size: clamp(1.55rem, 2.6vw, 2.45rem);
   font-weight: 500;
   line-height: 0.98;
+}
+
+.catalogue-card__reason {
+  max-width: 28ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(0.9rem, 1.25vw, 1.05rem);
+  line-height: 1.35;
+}
+
+.catalogue-card__action {
+  width: max-content;
+  margin-top: auto;
+  color: var(--bone);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .screen--venue-portrait::before {
