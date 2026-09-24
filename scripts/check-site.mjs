@@ -31,7 +31,10 @@ const tabSlides = (title, tab) => venue(title).tabs[tab].slides;
 
 assert.equal(tabSlides('FreshWind', 'scenario')[1].closing, 'Резерв: компактный вариант для более камерного сценария.');
 assert.deepEqual(tabSlides('FreshWind', 'facts')[0].media.map(({ src }) => src), ['assets/freshwind-room.jpg', 'assets/freshwind-conference-hall.jpg']);
-assert.equal(tabSlides('FreshWind', 'scenario')[0].media[0].src, 'assets/freshwind-bowling.jpg');
+assert.deepEqual(tabSlides('FreshWind', 'scenario')[0].media.map(({ src }) => src), [
+  'assets/freshwind-bowling.jpg',
+  'assets/freshwind-fresh.png',
+]);
 assert.equal(tabSlides('Moscow Country Club', 'facts')[0].media[0].src, 'assets/mcc-forest-country-hall.jpg');
 assert.equal(tabSlides('Moscow Country Club', 'scenario')[0].media[0].src, 'assets/mcc-accents.jpg');
 assert.equal(tabSlides('Moscow Country Club', 'general')[0].media.at(-1).src, 'assets/mcc-hero.jpg');

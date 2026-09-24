@@ -89,6 +89,7 @@ const venues = [
       { src: 'assets/freshwind-conference-hall.jpg', alt: 'Конференц-холл FreshWind', caption: 'Деловая часть · Конференц-холл' },
     ], scenarioMedia: [
       { src: 'assets/freshwind-bowling.jpg', alt: 'Боулинг FreshWind', caption: 'Вечерний маршрут · боулинг и бильярд' },
+      { src: 'assets/freshwind-fresh.png', alt: 'Банкетный зал FreshWind', caption: 'Вечерний маршрут · банкетный зал Fresh' },
     ] }),
   ...venueSlides(22, 'AZIMUT Переславль',
     { title: 'AZIMUT Переславль.', eyebrow: '120 км от Москвы · до 2 часов', closing: 'От станции Берендеево: около 11–15 минут на такси.', media: [
