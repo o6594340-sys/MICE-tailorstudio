@@ -106,6 +106,7 @@ const venues = [
       ],
       scenarioMedia: [
         { src: 'assets/azimut-pereslavl-banquet.jpg', alt: 'Банкетная рассадка в зале «Переславль-Залесский», AZIMUT Парк Отель Переславль', caption: 'Вечер 1 · «Переславль-Залесский», банкетная рассадка' },
+        { src: 'assets/azimut-banya.jpg', alt: 'Баня AZIMUT Переславль', caption: 'Активность · баня' },
       ],
       items: [{ title: 'Формат', text: 'Деловой зал, банкет, камерные вечерние маршруты и привозной «Точный ход».' }],
     }),
