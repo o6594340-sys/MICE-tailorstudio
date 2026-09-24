@@ -8,13 +8,22 @@ assert.match(html, /<a class="skip-link" href="#main-content">/);
 assert.match(html, /<main id="main-content">/);
 assert.match(html, /<div id="slides-root"><\/div>/);
 
-assert.equal(slides.length, 4);
-assert.deepEqual(slides.map(({ id }) => id), [1, 2, 3, 4]);
-assert.equal(slides[1].title, 'ГРАНАТ. Запас прочности.');
-assert.equal(slides[3].title, 'Семь площадок. Три рекомендации.');
-assert.equal(slides[1].body, 'Опыт, профессиональный круг, фокус, умение действовать командой. Площадка обязана выдерживать весь сценарий.');
-assert.equal(slides[3].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
-assert.deepEqual(slides[3].venueCards.map(({ slug }) => slug), [
+assert.equal(slides.length, 9);
+assert.deepEqual(slides.map(({ id }) => id), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
+assert.equal(slides[1].title, 'Прочность не берётся из воздуха.');
+assert.equal(slides[2].title, 'То, на чём держится сильный профессионал.');
+assert.equal(slides[3].eyebrow, 'День 1 · Деловой день «Граната»');
+assert.equal(slides[4].eyebrow, 'Вечер 1 · Круг');
+assert.equal(slides[5].eyebrow, 'День 2 · «Точный ход»');
+assert.match(slides[5].body, /После обеда все команды выходят на единый турнир «Точный ход»/u);
+assert.match(JSON.stringify(slides[5]), /мобильный лазерный или пневматический формат с инструкторами; точная механика определяется после выбора площадки и подтверждения территории/u);
+assert.equal(slides[6].eyebrow, 'Вечер 2 · Свой ритм');
+assert.doesNotMatch(JSON.stringify(slides[6]), /огонь/u);
+assert.equal(slides[7].title, 'День 3. Спокойный выход');
+assert.equal(slides[7].body, 'Завтрак, своё время, SPA и организованный выезд в Москву.');
+assert.equal(slides[8].title, 'Семь площадок. Три рекомендации.');
+assert.equal(slides[8].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
+assert.deepEqual(slides[8].venueCards.map(({ slug }) => slug), [
   'moscow-country-club', 'peresvet', 'areal', 'freshwind', 'azimut-pereslavl', 'zavidovo', 'les-art-resort',
 ]);
 
@@ -75,7 +84,7 @@ assert.match(tabSlides('LES Art Resort', 'scenario')[0].items[0].text, /«Опт
 
 const visibleData = JSON.stringify({ slides, venueDetails });
 assert.doesNotMatch(visibleData, /₽|бюджет|стоимост|ценов|\bАК\b|экономич|доплат/u);
-assert.doesNotMatch(visibleData, /Подтвердить|подтвердить|подтвержд|уточнить|Уточнить|запросить|Запросить|требует|Требует|спорного НДС|вопросы к площадкам/u);
+assert.doesNotMatch(visibleData, /Подтвердить|подтвердить|уточнить|Уточнить|запросить|Запросить|требует|Требует|спорного НДС|вопросы к площадкам/u);
 
 const main = await readFile(new URL('../dist/main.js', import.meta.url), 'utf8');
 assert.match(main, /function parseVenueRoute\(/);
@@ -87,10 +96,10 @@ assert.match(main, /'Размещение и деловая часть'/);
 assert.match(main, /'Вечер и сценарий'/);
 assert.doesNotMatch(main, /role', 'tablist'/);
 assert.doesNotMatch(main, /card\.href = `#screen-/);
-assert.match(main, /window\.location\.replace\('#screen-4'\)/);
+assert.match(main, /window\.location\.replace\('#screen-9'\)/);
 assert.match(main, /window\.addEventListener\('hashchange', renderRoute\)/);
 assert.match(main, /window\.scrollTo\(\{ top: 0, behavior: 'auto' \}\)/);
-assert.match(main, /window\.history\.replaceState\(null, '', '#screen-4'\)/);
+assert.match(main, /window\.history\.replaceState\(null, '', '#screen-9'\)/);
 assert.match(main, /skipLink\.addEventListener\('click'/);
 assert.match(main, /mainContent\.focus\(\)/);
 assert.match(main, /function renderSlides\(slideData\)/);

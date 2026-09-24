@@ -85,7 +85,7 @@ function renderCatalogueCards(cards = []) {
     card.addEventListener('click', (event) => {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
-      window.history.replaceState(null, '', '#screen-4');
+      window.history.replaceState(null, '', '#screen-9');
       window.location.hash = `venue/${slug}`;
     });
 
@@ -178,7 +178,7 @@ function renderVenueDetail(venue) {
   section.id = `venue-${venue.slug}`;
   section.setAttribute('aria-labelledby', `venue-${venue.slug}-title`);
   title.id = `venue-${venue.slug}-title`;
-  back.href = '#screen-4';
+  back.href = '#screen-9';
   externalLink.href = venue.externalUrl;
   externalLink.target = '_blank';
   externalLink.rel = 'noreferrer';
@@ -235,7 +235,7 @@ function renderRoute() {
   }
 
   if (window.location.hash.startsWith('#venue/')) {
-    window.location.replace('#screen-4');
+    window.location.replace('#screen-9');
     return;
   }
 

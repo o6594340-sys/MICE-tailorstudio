@@ -333,6 +333,7 @@ img { display: block; max-width: 100%; }
 .screen--experience::before,
 .screen--circle::before,
 .screen--rhythm::before,
+.screen--departure::before,
 .screen--finale::before {
   inset: 0;
   background-position: center;
@@ -343,6 +344,7 @@ img { display: block; max-width: 100%; }
 .screen--experience::before { background-image: url('assets/granat-ruby-space.png'); }
 .screen--circle::before { background-image: url('assets/granat-ruby-space.png'); background-position: 67% center; filter: hue-rotate(12deg) saturate(1.25); }
 .screen--rhythm::before { background: url('assets/granat-ruby-space.png') 37% center / cover; filter: hue-rotate(-8deg) saturate(0.9) contrast(1.15); }
+.screen--departure::before { background: url('assets/granat-ruby-space.png') 58% center / cover; filter: hue-rotate(8deg) saturate(0.8) contrast(1.05); }
 .screen--finale::before { background-image: url('assets/granat-ruby-space.png'); background-position: 82% center; filter: saturate(1.35) contrast(1.08); }
 
 .screen--experience::after {
@@ -364,6 +366,11 @@ img { display: block; max-width: 100%; }
 .screen--rhythm .screen-title { max-width: 15ch; }
 .screen--rhythm .screen-items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .screen--rhythm .screen-item { min-height: 12rem; border-color: rgba(255, 0, 87, 0.5); }
+
+.screen--departure::after { background: linear-gradient(90deg, rgba(23, 23, 25, 0.88) 0%, rgba(23, 23, 25, 0.48) 52%, rgba(23, 23, 25, 0.08) 100%); }
+.screen--departure .screen-content { width: min(100%, 49rem); }
+.screen--departure .screen-title { max-width: 13ch; }
+.screen--departure .screen-body { max-width: 34rem; }
 
 .screen--finale {
   justify-items: end;
@@ -674,6 +681,7 @@ img { display: block; max-width: 100%; }
   .screen--experience::before,
   .screen--circle::before,
   .screen--rhythm::before,
+  .screen--departure::before,
   .screen--finale::before { background-position: 62% center; }
   .screen--circle, .screen--finale { justify-items: start; }
   .screen--venue-decision { justify-items: start; }
