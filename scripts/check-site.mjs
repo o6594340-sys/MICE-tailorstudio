@@ -53,7 +53,10 @@ assert.equal(tabSlides('AZIMUT Переславль', 'facts')[0].media.at(-1).s
 assert.equal(tabSlides('«Ареал»', 'general')[0].media[0].src, 'assets/areal-marmelada.jpg');
 assert.equal(tabSlides('«Ареал»', 'facts')[0].media[0].src, 'assets/areal-dunay.jpg');
 assert.equal(tabSlides('«Ареал»', 'facts')[0].media.at(-1).src, 'assets/areal-room.jpg');
-assert.equal(tabSlides('«Ареал»', 'scenario')[0].media[0].src, 'assets/areal-kurshevel.jpg');
+assert.deepEqual(tabSlides('«Ареал»', 'scenario')[0].media.map(({ src }) => src), [
+  'assets/areal-kurshevel.jpg',
+  'assets/areal-bowling.jpg',
+]);
 assert.equal(tabSlides('FreshWind', 'general')[0].media.at(-1).src, 'assets/freshwind-hero.jpg');
 assert.equal(tabSlides('«Завидово»', 'scenario')[1].closing, 'Резерв: сильный модуль «Точный ход», но длинный маршрут и погодный риск.');
 assert.equal(tabSlides('«Завидово»', 'general')[0].media.at(-1).src, 'assets/radisson-hero.jpg');
