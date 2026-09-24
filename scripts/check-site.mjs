@@ -56,6 +56,12 @@ assert.doesNotMatch(visibleData, /₽|бюджет|стоимост|ценов|\
 assert.doesNotMatch(visibleData, /Подтвердить|подтвердить|подтвержд|уточнить|Уточнить|запросить|Запросить|требует|Требует|спорного НДС|вопросы к площадкам/u);
 
 const main = await readFile(new URL('../dist/main.js', import.meta.url), 'utf8');
+assert.match(main, /function parseVenueRoute\(/);
+assert.match(main, /venueDetails\.find/);
+assert.match(main, /← К площадкам/);
+assert.match(main, /role', 'tablist'/);
+assert.match(main, /'Размещение и деловая часть'/);
+assert.doesNotMatch(main, /card\.href = `#screen-/);
 assert.match(main, /function renderSlides\(slideData\)/);
 assert.match(main, /function renderMedia/);
 assert.match(main, /function renderCatalogueCards/);
