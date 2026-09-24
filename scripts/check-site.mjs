@@ -9,16 +9,17 @@ assert.match(html, /<div id="slides-root"><\/div>/);
 
 const { slides, venueLinks } = await import(new URL('../dist/content.js', import.meta.url));
 
-assert.equal(slides.length, 36);
-assert.deepEqual(slides.map(({ id }) => id), Array.from({ length: 36 }, (_, index) => index + 1));
+assert.equal(slides.length, 35);
+assert.deepEqual(slides.map(({ id }) => id), Array.from({ length: 35 }, (_, index) => index + 1));
 assert.equal(slides[1].title, 'Условия для сильного разговора и нормального отдыха');
-assert.equal(slides[4].title, 'Критерии выбора площадки для 90 участников');
-assert.equal(slides[5].title, 'Семь площадок. Три рекомендации.');
-assert.equal(slides[6].title, 'Три финалиста с разными маршрутами события');
-assert.equal(slides[34].title, 'Сравнение финалистов и резервов по ключевым параметрам');
-assert.equal(slides[35].title, 'Финальный шорт-лист');
+assert.equal(slides[4].title, 'Семь площадок. Три рекомендации.');
+assert.equal(slides[5].title, 'Три финалиста с разными маршрутами события');
+assert.equal(slides[33].title, 'Сравнение финалистов и резервов по ключевым параметрам');
+assert.equal(slides[34].title, 'Финальный шорт-лист');
+assert.doesNotMatch(JSON.stringify(slides), /Критерии выбора площадки/u);
 assert.equal(slides[2].body, 'Опыт, профессиональный круг, фокус, умение действовать командой. Площадка обязана выдерживать весь сценарий.');
-assert.equal(slides[5].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, бюджет, ограничения.');
+assert.equal(slides[4].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, бюджет, ограничения.');
+assert.deepEqual(slides[4].venueCards.map(({ screen }) => screen), [7, 11, 15, 19, 23, 27, 31]);
 assert.deepEqual([...new Set(slides.filter(({ venue }) => venue).map(({ venue }) => venue))], [
   'Moscow Country Club', 'Пересвет', '«Ареал»', 'FreshWind', 'AZIMUT Переславль', '«Завидово»', 'LES Art Resort',
 ]);
@@ -69,6 +70,8 @@ assert.match(main, /catalogue-card--finalist/);
 assert.match(main, /catalogue-card__reason/);
 assert.match(main, /Открыть площадку →/);
 assert.match(main, /href = `#screen-\$\{screen\}`/);
+assert.match(main, /catalogueLink\.href = '#screen-5'/);
+assert.match(main, /comparisonLink\.href = '#screen-34'/);
 assert.match(main, /new IntersectionObserver/);
 assert.match(main, /window\.matchMedia\('\(prefers-reduced-motion: reduce\)'\)/);
 

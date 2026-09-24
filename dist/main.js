@@ -103,10 +103,10 @@ function renderVenueNavigation(slide) {
   navigation.setAttribute('aria-label', `Навигация по площадке ${slide.venue}`);
 
   const catalogueLink = createElement('a', 'venue-navigation__link', 'К площадкам');
-  catalogueLink.href = '#screen-6';
+  catalogueLink.href = '#screen-5';
 
   const comparisonLink = createElement('a', 'venue-navigation__link', 'К сравнению');
-  comparisonLink.href = '#screen-35';
+  comparisonLink.href = '#screen-34';
 
   const siteLink = createElement('a', 'venue-navigation__link', 'Сайт площадки ↗');
   siteLink.href = venueLinks[slide.venue];
