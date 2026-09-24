@@ -82,6 +82,12 @@ function renderCatalogueCards(cards = []) {
 
     card.href = `#venue/${slug}`;
     card.setAttribute('aria-label', `${title}: ${reason} Открыть площадку`);
+    card.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      window.history.replaceState(null, '', '#screen-4');
+      window.location.hash = `venue/${slug}`;
+    });
 
     if (finalist) {
       card.append(createElement('span', 'catalogue-card__status', 'Рекомендуем'));
@@ -281,4 +287,12 @@ function renderRoute() {
 }
 
 window.addEventListener('hashchange', renderRoute);
+const skipLink = document.querySelector('.skip-link');
+const mainContent = document.querySelector('#main-content');
+
+mainContent.tabIndex = -1;
+skipLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  mainContent.focus();
+});
 renderRoute();
