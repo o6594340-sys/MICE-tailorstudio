@@ -46,6 +46,21 @@ function renderItems(items = []) {
   return list;
 }
 
+function renderBody(body) {
+  if (!body) {
+    return null;
+  }
+
+  const paragraphs = Array.isArray(body) ? body : [body];
+  const fragment = document.createDocumentFragment();
+
+  paragraphs.forEach((paragraph) => {
+    if (paragraph) fragment.append(createElement('p', 'screen-body', paragraph));
+  });
+
+  return fragment.childNodes.length ? fragment : null;
+}
+
 function renderMedia(media = []) {
   if (!media.length) {
     return null;
@@ -115,8 +130,10 @@ function renderSlide(slide) {
   if (slide.eyebrow) content.append(createElement('p', 'screen-context', slide.eyebrow));
   content.append(title);
   if (slide.displayTitle) content.append(createElement('p', 'screen-display-title', slide.displayTitle));
+  if (slide.subtitle) content.append(createElement('p', 'screen-subtitle', slide.subtitle));
   if (slide.meta) content.append(createElement('p', 'screen-meta', slide.meta));
-  if (slide.body) content.append(createElement('p', 'screen-body', slide.body));
+  const body = renderBody(slide.body);
+  if (body) content.append(body);
 
   const media = renderMedia(slide.media);
   if (media) content.append(media);
@@ -139,7 +156,8 @@ function renderDetailBlock(slide, headingTag = 'h2') {
   block.append(title);
   if (slide.eyebrow) block.append(createElement('p', 'screen-context', slide.eyebrow));
   if (slide.meta) block.append(createElement('p', 'screen-meta', slide.meta));
-  if (slide.body) block.append(createElement('p', 'screen-body', slide.body));
+  const body = renderBody(slide.body);
+  if (body) block.append(body);
 
   const media = renderMedia(slide.media);
   if (media) block.append(media);

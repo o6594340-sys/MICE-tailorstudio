@@ -162,6 +162,16 @@ img { display: block; max-width: 100%; }
   line-height: 0.99;
 }
 
+.screen-subtitle {
+  order: 2;
+  max-width: 32rem;
+  margin: 1rem 0 0;
+  color: #ff8ead;
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2.4vw, 2rem);
+  line-height: 1.08;
+}
+
 .screen-title {
   order: 1;
   font-size: clamp(2.55rem, 6vw, 6rem);
