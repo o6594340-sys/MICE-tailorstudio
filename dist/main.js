@@ -262,7 +262,7 @@ function renderRoute() {
   if (venue) {
     navigation.hidden = true;
     root.replaceChildren(renderVenueDetail(venue));
-    window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
     return;
   }
 
