@@ -1,4 +1,4 @@
-import { slides, venueDetails } from './content.js';
+import { slides, venueDetails } from './content.js?v=c757903';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let activeObserver;
