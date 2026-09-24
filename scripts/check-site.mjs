@@ -50,6 +50,7 @@ assert.equal(tabSlides('FreshWind', 'general')[0].media.at(-1).src, 'assets/fres
 assert.equal(tabSlides('«Завидово»', 'scenario')[1].closing, 'Резерв: сильный модуль «Точный ход», но длинный маршрут и погодный риск.');
 assert.equal(tabSlides('«Завидово»', 'general')[0].media.at(-1).src, 'assets/radisson-hero.jpg');
 assert.equal(tabSlides('«Завидово»', 'facts')[0].media[0].src, 'assets/zavidovo-chaika.jpg');
+assert.equal(tabSlides('«Завидово»', 'facts')[0].media.at(-1).src, 'assets/zavidovo-room.jpg');
 assert.equal(tabSlides('«Завидово»', 'scenario')[0].media[0].src, 'assets/zavidovo-sadko.jpg');
 assert.equal(tabSlides('«Завидово»', 'scenario')[0].media[1].src, 'assets/zavidovo-shooting-centre.jpg');
 assert.equal(tabSlides('LES Art Resort', 'general')[0].media[0].src, 'assets/les-placeholder-resort.png');

@@ -111,6 +111,7 @@ const venues = [
     {
       factsMedia: [
         { src: 'assets/zavidovo-chaika.jpg', alt: 'Зал «Чайка» в гостинице курорта «Завидово»', caption: 'Деловая часть · «Чайка», 110 м², в гостинице' },
+        { src: 'assets/zavidovo-room.jpg', alt: 'Номер курорта «Завидово»', caption: 'Размещение · номер' },
       ],
       scenarioMedia: [
         { src: 'assets/zavidovo-sadko.jpg', alt: 'Банкет в зале «Садко» спортивного комплекса курорта «Завидово»', caption: 'Вечер 1 · «Садко», 740 м², спортивный комплекс' },
