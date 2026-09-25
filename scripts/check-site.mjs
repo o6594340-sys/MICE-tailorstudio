@@ -185,12 +185,26 @@ assert.deepEqual(freshwindScenario.at(-1).body, [
   'Перед финальным выбором необходимо подтвердить режим работы SPA, доступные слоты для группы, вместимость вечерних зон, а также работу уличных активностей в ноябре. Для осенней даты основной акцент стоит делать на внутренних пространствах.',
 ]);
 assert.doesNotMatch(JSON.stringify(venue('FreshWind')), /Финалист|«Точный ход»/u);
-assert.equal(tabSlides('«Завидово»', 'scenario')[1].closing, 'Резерв: сильный модуль «Точный ход», но длинный маршрут и погодный риск.');
 assert.equal(tabSlides('«Завидово»', 'general')[0].media.at(-1).src, 'assets/radisson-hero.jpg');
 assert.equal(tabSlides('«Завидово»', 'facts')[0].media[0].src, 'assets/zavidovo-chaika.jpg');
 assert.equal(tabSlides('«Завидово»', 'facts')[0].media.at(-1).src, 'assets/zavidovo-room.jpg');
 assert.equal(tabSlides('«Завидово»', 'scenario')[0].media[0].src, 'assets/zavidovo-sadko.jpg');
 assert.equal(tabSlides('«Завидово»', 'scenario')[0].media[1].src, 'assets/zavidovo-shooting-centre.jpg');
+const zavidovoGeneral = tabSlides('«Завидово»', 'general')[0];
+const zavidovoGeneralBody = Array.isArray(zavidovoGeneral.body) ? zavidovoGeneral.body.join(' ') : zavidovoGeneral.body ?? '';
+assert.match(zavidovoGeneralBody, /Комплекс отдыха «Завидово» находится примерно в 117 км от Москвы\./u);
+assert.match(zavidovoGeneralBody, /38 одноместных номеров в гостинице, 32 гостя в таунхаусах/u);
+assert.match(zavidovoGeneralBody, /дорога от коттеджей до гостиницы может занимать 10–15 минут пешком/u);
+const zavidovoFacts = tabSlides('«Завидово»', 'facts')[0].items.map(({ text }) => text).join(' ');
+assert.match(zavidovoFacts, /зал «Чайка», 130 м²/u);
+assert.match(zavidovoFacts, /зал «Садко», 740 м²/u);
+const zavidovoScenario = tabSlides('«Завидово»', 'scenario');
+assert.equal(zavidovoScenario.at(-1).meta, 'Свободное время на площадке');
+assert.deepEqual(zavidovoScenario.at(-1).body, [
+  '«Завидово» даёт широкий выбор досуговых форматов: собственный стрелковый центр, электронно-лазерные и пневматические форматы, рыбалка, лазертаг, пейнтбол, русская баня и прогулки по территории.Бассейн работает по сеансам и вмещает до 50 гостей одновременно. Боулинга на площадке нет. Рыбалка и часть активностей требуют отдельного подтверждения по сезону, погоде и доступным слотам.',
+  'Перед финальным выбором необходимо подтвердить работу стрелкового центра в даты мероприятия, сценарии на случай плохой погоды, время посещения бассейна, маршруты по территории и возможности трансфера для гостей.',
+]);
+assert.doesNotMatch(JSON.stringify(venue('«Завидово»')), /Финалист|«Точный ход»/u);
 assert.equal(tabSlides('LES Art Resort', 'general')[0].media[0].src, 'assets/les-placeholder-resort.png');
 assert.equal(tabSlides('LES Art Resort', 'facts')[0].media[0].src, 'assets/les-conference-hall.jpg');
 assert.equal(tabSlides('LES Art Resort', 'scenario')[0].media[0].src, 'assets/les-banquet-hall.jpg');
