@@ -111,6 +111,22 @@ assert.deepEqual(tabSlides('Пересвет', 'scenario')[0].media.map(({ src }
   'assets/peresvett-ozero.png',
   'assets/peresvet-utesov.jpg',
 ]);
+const peresvetGeneral = tabSlides('Пересвет', 'general')[0];
+const peresvetGeneralBody = Array.isArray(peresvetGeneral.body) ? peresvetGeneral.body.join(' ') : peresvetGeneral.body;
+assert.match(peresvetGeneralBody, /«Русские Сезоны Курорт Пересвет» — большой спортивный курорт/u);
+assert.match(peresvetGeneralBody, /55 номеров Standard в Congress Hotel и 35 номеров Standard Comfort в Comfort Hotel/u);
+assert.match(peresvetGeneralBody, /Перед финальным подтверждением важно сверить размещение группы/u);
+assert.equal(peresvetGeneral.closing, '');
+const peresvetFacts = tabSlides('Пересвет', 'facts')[0].items.map(({ text }) => text).join(' ');
+assert.match(peresvetFacts, /Зал «Стравинский», 583 м²\./u);
+assert.match(peresvetFacts, /В «Ozero» после 23:00 возможен спокойный формат без музыки\./u);
+const peresvetScenario = tabSlides('Пересвет', 'scenario');
+assert.equal(peresvetScenario.at(-1).meta, 'Свободное время на курорте');
+assert.deepEqual(peresvetScenario.at(-1).body, [
+  'Ледовая арена, боулинг, бильярд, теннис, спортивные активности и искусственная волна. Для отдыха предусмотрены два бассейна, SPA и тренажёрный зал.',
+  'Все активности планируются по слотам и потокам. До окончательного выбора площадки необходимо подтвердить ноябрьский график работы SPA, ледовой арены, боулинга и тенниса, а также отсутствие реконструкций.',
+]);
+assert.doesNotMatch(JSON.stringify(venue('Пересвет')), /Финалист|«Точный ход»/u);
 assert.equal(tabSlides('AZIMUT Переславль', 'facts')[0].media[0].src, 'assets/azimut-zalesskiy-theatre.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'scenario')[0].media[0].src, 'assets/azimut-pereslavl-banquet.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'scenario')[0].media.at(-1).src, 'assets/azimut-banya.jpg');
