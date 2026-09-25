@@ -132,6 +132,21 @@ assert.equal(tabSlides('AZIMUT Переславль', 'scenario')[0].media[0].sr
 assert.equal(tabSlides('AZIMUT Переславль', 'scenario')[0].media.at(-1).src, 'assets/azimut-banya.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'general')[0].media.at(-1).src, 'assets/azimut-hero.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'facts')[0].media.at(-1).src, 'assets/azimut-room.jpg');
+const azimutGeneral = tabSlides('AZIMUT Переславль', 'general')[0];
+const azimutGeneralBody = Array.isArray(azimutGeneral.body) ? azimutGeneral.body.join(' ') : azimutGeneral.body ?? '';
+assert.match(azimutGeneralBody, /AZIMUT Парк Отель Переславль находится примерно в 120 км от Москвы\./u);
+assert.match(azimutGeneralBody, /79 номеров категории «Улучшенный» и 11 Junior Suite/u);
+assert.match(azimutGeneralBody, /до ресторана «Нагорье» около пяти минут пешком/u);
+const azimutFacts = tabSlides('AZIMUT Переславль', 'facts')[0].items.map(({ text }) => text).join(' ');
+assert.match(azimutFacts, /зал «Переславль-Залесский», 300 м²/u);
+assert.match(azimutFacts, /Условия позднего завершения программы/u);
+const azimutScenario = tabSlides('AZIMUT Переславль', 'scenario');
+assert.equal(azimutScenario.at(-1).meta, 'Свободное время на площадке');
+assert.deepEqual(azimutScenario.at(-1).body, [
+  'На территории есть SPA-комплекс с тремя саунами и снежной комнатой, а также боулинг, караоке и бильярд. Вечерние игровые зоны компактные, ориентир по единовременной вместимости — до 25 человек, поэтому их лучше предлагать как свободную дополнительную активность, а не как общую программу для всех гостей.',
+  'Перед финальным выбором необходимо подтвердить график работы SPA в даты мероприятия, доступные слоты для группы, режим работы боулинга, караоке и бильярда, а также отсутствие сезонных ограничений. Падел в ноябре не рассматриваем.',
+]);
+assert.doesNotMatch(JSON.stringify(venue('AZIMUT Переславль')), /Финалист|«Точный ход»/u);
 assert.equal(tabSlides('«Ареал»', 'general')[0].media[0].src, 'assets/areal-marmelada.jpg');
 assert.equal(tabSlides('«Ареал»', 'facts')[0].media[0].src, 'assets/areal-dunay.jpg');
 assert.equal(tabSlides('«Ареал»', 'facts')[0].media.at(-1).src, 'assets/areal-room.jpg');
