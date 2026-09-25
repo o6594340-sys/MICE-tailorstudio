@@ -79,9 +79,11 @@ assert.deepEqual(tabSlides('FreshWind', 'scenario')[0].media.map(({ src }) => sr
   'assets/freshwind-bowling.jpg',
   'assets/freshwind-fresh.png',
 ]);
-assert.equal(tabSlides('Moscow Country Club', 'facts')[0].media[0].src, 'assets/mcc-forest-country-hall.jpg');
-assert.equal(tabSlides('Moscow Country Club', 'facts')[0].media.at(-1).src, 'assets/mcc-room.jpg');
-assert.equal(tabSlides('Moscow Country Club', 'scenario')[0].media[0].src, 'assets/mcc-accents.jpg');
+assert.equal(tabSlides('Moscow Country Club', 'facts')[0].media[0].src, 'assets/mcc-room.jpg');
+assert.deepEqual(tabSlides('Moscow Country Club', 'scenario')[0].media.map(({ src, caption }) => ({ src, caption })), [
+  { src: 'assets/mcc-forest-country-hall.jpg', caption: 'Вечер 1 · Forest Country Hall' },
+  { src: 'assets/mcc-accents.jpg', caption: 'Вечер 2 · ресторан «Акценты»' },
+]);
 assert.equal(tabSlides('Moscow Country Club', 'general')[0].media.at(-1).src, 'assets/mcc-hero.jpg');
 const mccGeneral = tabSlides('Moscow Country Club', 'general')[0];
 const mccGeneralBody = Array.isArray(mccGeneral.body) ? mccGeneral.body.join(' ') : mccGeneral.body;
@@ -95,8 +97,14 @@ assert.deepEqual(mccGeneral.reference, {
 });
 const mccFacts = tabSlides('Moscow Country Club', 'facts')[0].items.map(({ text }) => text).join(' ');
 assert.match(mccFacts, /Конференц-зал «Лебединое озеро»: 178,5 м², до 120 гостей\./u);
-assert.match(mccFacts, /Для вечерних форматов: Forest Country Hall, 239 м², до 100 гостей, и ресторан «Акценты», 284 м², до 130 гостей\./u);
+assert.doesNotMatch(mccFacts, /Forest Country Hall|Акценты/u);
 const mccScenario = tabSlides('Moscow Country Club', 'scenario');
+const mccEvenings = mccScenario[0].items.filter(({ title }) => /^Вечер [12]$/u.test(title));
+assert.deepEqual(mccEvenings, [
+  { title: 'Вечер 1', text: 'Forest Country Hall, 240 м², до 120 гостей.' },
+  { title: 'Вечер 2', text: 'Ресторан «Акценты», 284 м², до 130 гостей. Вечерняя программа — до 02:00.' },
+]);
+assert.doesNotMatch(JSON.stringify(mccScenario), /Вечер 1 и 2|title: 'Вечера'/u);
 assert.equal(mccScenario.at(-1).meta, 'На территории');
 assert.deepEqual(mccScenario.at(-1).body, [
   'Что включено в проживание: бассейн, сауна, хамам, тренажёрный зал и групповые занятия для взрослых по расписанию.',
