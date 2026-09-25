@@ -74,7 +74,6 @@ assert.deepEqual(venueDetails.map(({ title }) => title), [
 const venue = (title) => venueDetails.find((entry) => entry.title === title);
 const tabSlides = (title, tab) => venue(title).tabs[tab].slides;
 
-assert.equal(tabSlides('FreshWind', 'scenario')[1].closing, 'Резерв: компактный вариант для более камерного сценария.');
 assert.deepEqual(tabSlides('FreshWind', 'facts')[0].media.map(({ src }) => src), ['assets/freshwind-room.jpg', 'assets/freshwind-conference-hall.jpg']);
 assert.deepEqual(tabSlides('FreshWind', 'scenario')[0].media.map(({ src }) => src), [
   'assets/freshwind-bowling.jpg',
@@ -155,6 +154,21 @@ assert.deepEqual(tabSlides('«Ареал»', 'scenario')[0].media.map(({ src }) 
   'assets/areal-bowling.jpg',
 ]);
 assert.equal(tabSlides('FreshWind', 'general')[0].media.at(-1).src, 'assets/freshwind-hero.jpg');
+const freshwindGeneral = tabSlides('FreshWind', 'general')[0];
+const freshwindGeneralBody = Array.isArray(freshwindGeneral.body) ? freshwindGeneral.body.join(' ') : freshwindGeneral.body ?? '';
+assert.match(freshwindGeneralBody, /FreshWind находится примерно в 50 км от МКАД\./u);
+assert.match(freshwindGeneralBody, /67 номеров в корпусе 3 и 23 номера в корпусе 2/u);
+const freshwindFacts = tabSlides('FreshWind', 'facts')[0].items.map(({ text }) => text).join(' ');
+assert.match(freshwindFacts, /объединённый зал Conference Hall 1\+3, 761 м²/u);
+assert.match(freshwindFacts, /банкетный зал Fresh, 650 м²/u);
+const freshwindScenario = tabSlides('FreshWind', 'scenario');
+assert.equal(freshwindScenario.at(-1).meta, 'Свободное время на площадке');
+assert.deepEqual(freshwindScenario.at(-1).body, [
+  'В проживание включены посещение внутреннего SPA-комплекса и тренажёрного зала. Сауна и хаммам доступны в установленном площадкой временном слоте.',
+  'Дополнительно на территории есть боулинг, бильярд, кинозал и русская баня. Эти форматы позволяют гостям выбрать спокойный или более активный вечер после основной программы.',
+  'Перед финальным выбором необходимо подтвердить режим работы SPA, доступные слоты для группы, вместимость вечерних зон, а также работу уличных активностей в ноябре. Для осенней даты основной акцент стоит делать на внутренних пространствах.',
+]);
+assert.doesNotMatch(JSON.stringify(venue('FreshWind')), /Финалист|«Точный ход»/u);
 assert.equal(tabSlides('«Завидово»', 'scenario')[1].closing, 'Резерв: сильный модуль «Точный ход», но длинный маршрут и погодный риск.');
 assert.equal(tabSlides('«Завидово»', 'general')[0].media.at(-1).src, 'assets/radisson-hero.jpg');
 assert.equal(tabSlides('«Завидово»', 'facts')[0].media[0].src, 'assets/zavidovo-chaika.jpg');
