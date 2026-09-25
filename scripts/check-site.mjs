@@ -153,6 +153,22 @@ assert.deepEqual(tabSlides('«Ареал»', 'scenario')[0].media.map(({ src }) 
   'assets/areal-kurshevel.jpg',
   'assets/areal-bowling.jpg',
 ]);
+const arealGeneral = tabSlides('«Ареал»', 'general')[0];
+const arealGeneralBody = Array.isArray(arealGeneral.body) ? arealGeneral.body.join(' ') : arealGeneral.body ?? '';
+assert.match(arealGeneralBody, /Конгресс-отель «Ареал» находится в 17 км от МКАД\./u);
+assert.match(arealGeneralBody, /У отеля 275 номеров; для группы можно рассмотреть 90 одноместных размещений\./u);
+assert.match(arealGeneralBody, /все основные зоны собраны в одном комплексе/u);
+const arealFacts = tabSlides('«Ареал»', 'facts')[0].items.map(({ text }) => text).join(' ');
+assert.match(arealFacts, /зал «Мирабель», 172 м²/u);
+assert.match(arealFacts, /зал «Дунай-1», 336 м²/u);
+const arealScenario = tabSlides('«Ареал»', 'scenario');
+assert.equal(arealScenario.at(-1).meta, 'Свободное время на площадке');
+assert.deepEqual(arealScenario.at(-1).body, [
+  'В проживание включены бассейн, сауна, хаммам, тренажёрный зал и групповые занятия для взрослых.',
+  'Дополнительно доступны SPA-комплекс с несколькими саунами, русская баня, хаммам, боулинг, бильярд и караоке. В зоне «Куршевель» есть четыре дорожки боулинга, две бильярдные зоны и две караоке-комнаты.',
+  'Перед финальным выбором необходимо подтвердить вместимость вечерних пространств для всей группы, режим работы SPA и развлекательных зон в даты мероприятия, а также условия продления вечера.',
+]);
+assert.doesNotMatch(JSON.stringify(venue('«Ареал»')), /Финалист|«Точный ход»/u);
 assert.equal(tabSlides('FreshWind', 'general')[0].media.at(-1).src, 'assets/freshwind-hero.jpg');
 const freshwindGeneral = tabSlides('FreshWind', 'general')[0];
 const freshwindGeneralBody = Array.isArray(freshwindGeneral.body) ? freshwindGeneral.body.join(' ') : freshwindGeneral.body ?? '';
