@@ -82,6 +82,29 @@ function renderMedia(media = []) {
   return gallery;
 }
 
+function renderKeyVisuals(keyVisuals) {
+  if (!keyVisuals?.length) {
+    return null;
+  }
+
+  const grid = createElement('div', 'key-visuals-grid');
+
+  keyVisuals.forEach(({ src, alt, title, text }) => {
+    const figure = createElement('figure', 'key-visuals-item');
+    const image = document.createElement('img');
+    const caption = createElement('figcaption', 'key-visuals-item__copy');
+
+    image.src = src;
+    image.alt = alt;
+    image.loading = 'lazy';
+    caption.append(createElement('h2', 'key-visuals-item__title', title), createElement('p', 'key-visuals-item__text', text));
+    figure.append(image, caption);
+    grid.append(figure);
+  });
+
+  return grid;
+}
+
 function renderCatalogueCards(cards = []) {
   if (!cards.length) {
     return null;
@@ -118,14 +141,14 @@ function renderCatalogueCards(cards = []) {
 function renderSlide(slide) {
   const section = document.createElement('section');
   const content = createElement('div', 'screen-content');
-  const index = createElement('span', 'screen-index', String(slide.id).padStart(2, '0'));
+  const index = slide.navigable === false ? null : createElement('span', 'screen-index', String(slide.id).padStart(2, '0'));
   const title = createElement('h1', 'screen-title', slide.title);
 
   section.id = `screen-${slide.id}`;
   section.className = `screen screen--${slide.scene}`;
   section.setAttribute('aria-labelledby', `screen-${slide.id}-title`);
   title.id = `screen-${slide.id}-title`;
-  content.append(index);
+  if (index) content.append(index);
 
   if (slide.eyebrow) content.append(createElement('p', 'screen-context', slide.eyebrow));
   content.append(title);
@@ -137,6 +160,9 @@ function renderSlide(slide) {
 
   const media = renderMedia(slide.media);
   if (media) content.append(media);
+
+  const keyVisuals = renderKeyVisuals(slide.keyVisuals);
+  if (keyVisuals) content.append(keyVisuals);
 
   const catalogueCards = renderCatalogueCards(slide.venueCards);
   if (catalogueCards) content.append(catalogueCards);
@@ -212,7 +238,7 @@ function renderSlides(slideData) {
 
 function renderNavigation(slideData) {
   const nav = document.querySelector('#screen-nav');
-  nav.replaceChildren(...slideData.map((slide) => {
+  nav.replaceChildren(...slideData.filter((slide) => slide.navigable !== false).map((slide) => {
     const item = document.createElement('li');
     const link = createElement('a', 'screen-nav__link', String(slide.id).padStart(2, '0'));
     link.href = `#screen-${slide.id}`;
