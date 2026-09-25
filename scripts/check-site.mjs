@@ -105,6 +105,7 @@ assert.deepEqual(mccEvenings, [
   { title: 'Вечер 2', text: 'Ресторан «Акценты», 284 м², до 130 гостей. Вечерняя программа — до 02:00.' },
 ]);
 assert.doesNotMatch(JSON.stringify(mccScenario), /Вечер 1 и 2|title: 'Вечера'/u);
+assert.doesNotMatch(JSON.stringify(venue('Moscow Country Club')), /Пересетап занимает до 2,5 часов/u);
 assert.equal(mccScenario.at(-1).meta, 'На территории');
 assert.deepEqual(mccScenario.at(-1).body, [
   'Что включено в проживание: бассейн, сауна, хамам, тренажёрный зал и групповые занятия для взрослых по расписанию.',
@@ -127,6 +128,9 @@ assert.equal(peresvetGeneral.closing, '');
 const peresvetFacts = tabSlides('Пересвет', 'facts')[0].items.map(({ text }) => text).join(' ');
 assert.match(peresvetFacts, /Зал «Стравинский», 583 м²\./u);
 assert.match(peresvetFacts, /В «Ozero» после 23:00 возможен спокойный формат без музыки\./u);
+assert.match(peresvetFacts, /Продление вечера в «Утёсове» уже подтверждено/u);
+assert.match(peresvetFacts, /сигарную и кальянную комнаты, до 5 часов/u);
+assert.doesNotMatch(peresvetFacts, /условия по звуку подтверждаются отдельно/u);
 const peresvetScenario = tabSlides('Пересвет', 'scenario');
 assert.equal(peresvetScenario.at(-1).meta, 'Свободное время на курорте');
 assert.deepEqual(peresvetScenario.at(-1).body, [
@@ -146,18 +150,20 @@ assert.match(azimutGeneralBody, /79 номеров категории «Улуч
 assert.match(azimutGeneralBody, /до ресторана «Нагорье» около пяти минут пешком/u);
 const azimutFacts = tabSlides('AZIMUT Переславль', 'facts')[0].items.map(({ text }) => text).join(' ');
 assert.match(azimutFacts, /зал «Переславль-Залесский», 300 м²/u);
-assert.match(azimutFacts, /Условия позднего завершения программы/u);
+assert.match(azimutFacts, /Вечерняя программа продлена до 02:00\./u);
+assert.doesNotMatch(azimutFacts, /необходимо подтвердить отдельно/u);
 const azimutScenario = tabSlides('AZIMUT Переславль', 'scenario');
+assert.match(azimutScenario.at(-1).body.join(' '), /На оба вечера заложена аренда помещения боулинга и караоке; его вместимость — до 25 гостей\./u);
 assert.equal(azimutScenario.at(-1).meta, 'Свободное время на площадке');
 assert.deepEqual(azimutScenario.at(-1).body, [
-  'На территории есть SPA-комплекс с тремя саунами и снежной комнатой, а также боулинг, караоке и бильярд. Вечерние игровые зоны компактные, ориентир по единовременной вместимости — до 25 человек, поэтому их лучше предлагать как свободную дополнительную активность, а не как общую программу для всех гостей.',
+  'На территории есть SPA-комплекс с тремя саунами и снежной комнатой, а также боулинг, караоке и бильярд. На оба вечера заложена аренда помещения боулинга и караоке; его вместимость — до 25 гостей. Это камерный дополнительный маршрут, не активность сразу для всей группы.',
   'Перед финальным выбором необходимо подтвердить график работы SPA в даты мероприятия, доступные слоты для группы, режим работы боулинга, караоке и бильярда, а также отсутствие сезонных ограничений. Падел в ноябре не рассматриваем.',
 ]);
 assert.doesNotMatch(JSON.stringify(venue('AZIMUT Переславль')), /Финалист|«Точный ход»/u);
-assert.equal(tabSlides('«Ареал»', 'general')[0].media[0].src, 'assets/areal-marmelada.jpg');
-assert.equal(tabSlides('«Ареал»', 'facts')[0].media[0].src, 'assets/areal-dunay.jpg');
-assert.equal(tabSlides('«Ареал»', 'facts')[0].media.at(-1).src, 'assets/areal-room.jpg');
+assert.equal(tabSlides('«Ареал»', 'general')[0].media.length, 0);
+assert.equal(tabSlides('«Ареал»', 'facts')[0].media[0].src, 'assets/areal-room.jpg');
 assert.deepEqual(tabSlides('«Ареал»', 'scenario')[0].media.map(({ src }) => src), [
+  'assets/areal-dunay.jpg',
   'assets/areal-kurshevel.jpg',
   'assets/areal-bowling.jpg',
 ]);
@@ -169,11 +175,14 @@ assert.match(arealGeneralBody, /все основные зоны собраны 
 const arealFacts = tabSlides('«Ареал»', 'facts')[0].items.map(({ text }) => text).join(' ');
 assert.match(arealFacts, /зал «Мирабель», 172 м²/u);
 assert.match(arealFacts, /зал «Дунай-1», 336 м²/u);
+assert.doesNotMatch(JSON.stringify(venue('«Ареал»')), /Мармолада|Деловая часть · «Дунай»/u);
 const arealScenario = tabSlides('«Ареал»', 'scenario');
+assert.match(arealScenario[0].items.map(({ text }) => text).join(' '), /После банкета на обоих вечерах — переход в развлекательный комплекс «Куршевель»/u);
+assert.match(arealScenario.at(-1).body.join(' '), /4 дорожки боулинга, 2 бильярдных стола и 2 караоке-комнаты/u);
 assert.equal(arealScenario.at(-1).meta, 'Свободное время на площадке');
 assert.deepEqual(arealScenario.at(-1).body, [
   'В проживание включены бассейн, сауна, хаммам, тренажёрный зал и групповые занятия для взрослых.',
-  'Дополнительно доступны SPA-комплекс с несколькими саунами, русская баня, хаммам, боулинг, бильярд и караоке. В зоне «Куршевель» есть четыре дорожки боулинга, две бильярдные зоны и две караоке-комнаты.',
+  'Дополнительно доступны SPA-комплекс с несколькими саунами, русская баня, хаммам, боулинг, бильярд и караоке. В зоне «Куршевель» есть 4 дорожки боулинга, 2 бильярдных стола и 2 караоке-комнаты.',
   'Перед финальным выбором необходимо подтвердить вместимость вечерних пространств для всей группы, режим работы SPA и развлекательных зон в даты мероприятия, а также условия продления вечера.',
 ]);
 assert.doesNotMatch(JSON.stringify(venue('«Ареал»')), /Финалист|«Точный ход»/u);
@@ -221,11 +230,13 @@ assert.equal(tabSlides('LES Art Resort', 'facts')[0].media.at(-1).src, 'assets/l
 const lesGeneral = tabSlides('LES Art Resort', 'general')[0];
 const lesGeneralBody = Array.isArray(lesGeneral.body) ? lesGeneral.body.join(' ') : lesGeneral.body ?? '';
 assert.match(lesGeneralBody, /LES Art Resort находится примерно в 1–1,5 часах пути от Москвы\./u);
-assert.match(lesGeneralBody, /возможность разместить 90 гостей одноместно/u);
+assert.match(lesGeneralBody, /90 одноместных размещений подтверждено\./u);
 const lesFacts = tabSlides('LES Art Resort', 'facts')[0].items.map(({ text }) => text).join(' ');
-assert.match(lesFacts, /«Орфей», 455 м²; «Оптимус», 300 м²; «Бельведер», 600 м²; «Оффшор», 500 м²/u);
-assert.match(lesFacts, /Для вечерних форматов подходит «Бельведер», 600 м²/u);
+assert.match(lesFacts, /Деловая часть — зал «Орфей», 455 м²\./u);
+assert.match(lesFacts, /Вечер 1 — большой зал «Оптимус», 300 м²\./u);
+assert.match(lesFacts, /Вечер 2 — большой зал «Оптимус», 300 м²\./u);
 const lesScenario = tabSlides('LES Art Resort', 'scenario')[0];
+assert.match(lesScenario.media[0].caption, /Вечер 1 и 2 · большой зал «Оптимус», 300 м²/u);
 assert.equal(lesScenario.meta, 'Свободное время на площадке');
 assert.deepEqual(lesScenario.body, [
   'На территории есть SPA, бассейн, термальная зона, фитнес, бильярд, боулинг, вечерний клуб и VR-активности. Формат HOLAclusive предусматривает трёхразовое питание и напитки в соответствии с условиями выбранного тарифа. Часть активностей подходит для свободного вечернего времени: гости могут выбрать боулинг, бильярд, клуб или более спокойный отдых в SPA.',
