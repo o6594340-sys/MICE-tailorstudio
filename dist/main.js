@@ -134,13 +134,14 @@ function renderCatalogueCards(cards = []) {
   const list = createElement('nav', 'catalogue-cards');
   list.setAttribute('aria-label', 'Площадки');
 
-  cards.forEach(({ title, reason, slug, finalist }) => {
-    const card = createElement('a', finalist ? 'catalogue-card catalogue-card--finalist' : 'catalogue-card');
+  cards.forEach(({ title, meta, reason, slug }) => {
+    const card = createElement('a', 'catalogue-card');
     const name = createElement('h2', 'catalogue-card__title', title);
+    const travel = createElement('p', 'catalogue-card__reason', meta);
     const explanation = createElement('p', 'catalogue-card__reason', reason);
 
     card.href = `#venue/${slug}`;
-    card.setAttribute('aria-label', `${title}: ${reason} Открыть площадку`);
+    card.setAttribute('aria-label', `${title}: ${meta}. ${reason} Открыть площадку`);
     card.addEventListener('click', (event) => {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
@@ -148,11 +149,7 @@ function renderCatalogueCards(cards = []) {
       window.location.hash = `venue/${slug}`;
     });
 
-    if (finalist) {
-      card.append(createElement('span', 'catalogue-card__status', 'Рекомендуем'));
-    }
-
-    card.append(name, explanation, createElement('span', 'catalogue-card__action', 'Открыть площадку →'));
+    card.append(name, travel, explanation, createElement('span', 'catalogue-card__action', 'Открыть площадку →'));
     list.append(card);
   });
 

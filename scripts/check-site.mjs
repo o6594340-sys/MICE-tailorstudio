@@ -50,11 +50,18 @@ assert.equal(sharedGame.eyebrow, 'День 2. Общая игра');
 assert.equal(sharedGame.title, 'Точный ход');
 assert.equal(sharedGame.subtitle, 'Запас прочности в действии.');
 assert.deepEqual(sharedGame.body, ['В стрельбе важна не только точность первого попадания. Важнее сохранить спокойствие после промаха, быстро скорректироваться и довести общий результат до цели.', 'Предлагаем общий командный стрелковый турнир: смешанные команды проходят несколько понятных рубежей, набирают баллы и сходятся в финале. Здесь опыт каждого усиливает команду, а команда добавляет уверенности каждому.', 'Вот это и есть запас прочности: не безошибочность, а способность собраться, сделать точный ход и идти дальше.', 'На площадке со своей стрелковой инфраструктурой используем её возможности. На других площадках привозим мобильный лазерный или пневматический формат с инструкторами и организованной зоной проведения. Точную механику выбираем после подтверждения территории; турнир проходит во второй половине дня, до алкоголя.']);
-assert.equal(slides[11].title, 'Семь площадок. Три рекомендации.');
-assert.equal(slides[11].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
-assert.deepEqual(slides[11].venueCards.map(({ slug }) => slug), [
-  'moscow-country-club', 'peresvet', 'areal', 'freshwind', 'azimut-pereslavl', 'zavidovo', 'les-art-resort',
+assert.equal(slides[11].title, 'Площадки для обсуждения');
+assert.equal(slides[11].body, 'Каждая площадка по-разному собирает деловую часть, отдых и свободное время. Откройте карточку, чтобы посмотреть детали.');
+assert.deepEqual(slides[11].venueCards.map(({ title, meta, reason, slug }) => ({ title, meta, reason, slug })), [
+  { title: 'Moscow Country Club', meta: '12–13 км от МКАД · 30–45 минут в пути', reason: 'Загородный клуб рядом с Москвой', slug: 'moscow-country-club' },
+  { title: 'Русские Сезоны Курорт Пересвет', meta: '70 км от МКАД · 1,5–2 часа в пути', reason: 'Спортивная инфраструктура и большая территория', slug: 'peresvet' },
+  { title: 'Конгресс-отель «Ареал»', meta: '17 км от МКАД · 45–60 минут в пути', reason: 'Ключевые зоны программы в одном здании', slug: 'areal' },
+  { title: 'FreshWind', meta: 'Около 50 км от МКАД · 1–1,5 часа в пути', reason: 'Большая деловая и вечерняя база', slug: 'freshwind' },
+  { title: 'AZIMUT Парк Отель Переславль', meta: 'Около 120 км от Москвы · до 2 часов в пути', reason: 'Парк-отель с собранным размещением группы', slug: 'azimut-pereslavl' },
+  { title: 'Комплекс отдыха «Завидово»', meta: '117 км от Москвы · 2–2,5 часа в пути', reason: 'Большая территория и активный досуг', slug: 'zavidovo' },
+  { title: 'LES Art Resort', meta: 'Ориентир: 1–1,5 часа в пути', reason: 'Курорт с насыщенной инфраструктурой отдыха', slug: 'les-art-resort' },
 ]);
+assert.doesNotMatch(JSON.stringify(slides[11].venueCards), /Финалист|Резерв|Рекомендуем|Выбор|Основной вариант|Альтернатива/u);
 
 assert.equal(venueDetails.length, 7);
 assert.deepEqual(Object.keys(venueDetails[0].tabs), ['general', 'facts', 'scenario']);
@@ -160,7 +167,8 @@ assert.match(main, /function renderVisualApplications\(visualApplications\)/);
 assert.match(main, /slideData\.filter\(\(slide\) => slide\.navigable !== false\)/);
 assert.match(main, /function renderMedia/);
 assert.match(main, /function renderCatalogueCards/);
-assert.match(main, /catalogue-card--finalist/);
+assert.match(main, /cards\.forEach\(\(\{ title, meta, reason, slug \}\)/);
+assert.doesNotMatch(main, /catalogue-card--finalist|catalogue-card__status|Рекомендуем/u);
 assert.match(main, /catalogue-card__reason/);
 assert.match(main, /Открыть площадку →/);
 assert.match(main, /new IntersectionObserver/);
