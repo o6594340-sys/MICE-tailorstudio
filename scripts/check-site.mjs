@@ -210,8 +210,20 @@ assert.equal(tabSlides('LES Art Resort', 'facts')[0].media[0].src, 'assets/les-c
 assert.equal(tabSlides('LES Art Resort', 'scenario')[0].media[0].src, 'assets/les-banquet-hall.jpg');
 assert.equal(tabSlides('LES Art Resort', 'general')[0].media.at(-1).src, 'assets/lesart-hero.jpeg');
 assert.equal(tabSlides('LES Art Resort', 'facts')[0].media.at(-1).src, 'assets/lesart-room.jpg');
-assert.match(tabSlides('LES Art Resort', 'facts')[0].items[1].text, /455 м²/u);
-assert.match(tabSlides('LES Art Resort', 'scenario')[0].items[0].text, /«Оптимус», 300 м²/u);
+const lesGeneral = tabSlides('LES Art Resort', 'general')[0];
+const lesGeneralBody = Array.isArray(lesGeneral.body) ? lesGeneral.body.join(' ') : lesGeneral.body ?? '';
+assert.match(lesGeneralBody, /LES Art Resort находится примерно в 1–1,5 часах пути от Москвы\./u);
+assert.match(lesGeneralBody, /возможность разместить 90 гостей одноместно/u);
+const lesFacts = tabSlides('LES Art Resort', 'facts')[0].items.map(({ text }) => text).join(' ');
+assert.match(lesFacts, /«Орфей», 455 м²; «Оптимус», 300 м²; «Бельведер», 600 м²; «Оффшор», 500 м²/u);
+assert.match(lesFacts, /Для вечерних форматов подходит «Бельведер», 600 м²/u);
+const lesScenario = tabSlides('LES Art Resort', 'scenario')[0];
+assert.equal(lesScenario.meta, 'Свободное время на площадке');
+assert.deepEqual(lesScenario.body, [
+  'На территории есть SPA, бассейн, термальная зона, фитнес, бильярд, боулинг, вечерний клуб и VR-активности. Формат HOLAclusive предусматривает трёхразовое питание и напитки в соответствии с условиями выбранного тарифа. Часть активностей подходит для свободного вечернего времени: гости могут выбрать боулинг, бильярд, клуб или более спокойный отдых в SPA.',
+  'Перед финальным выбором необходимо подтвердить состав услуг выбранного тарифа, режим работы SPA и бассейна, доступность боулинга и клуба для группы, возможность закрытия нужных зон, а также корпоративный формат питания без пересечения с семейными гостями.',
+]);
+assert.doesNotMatch(JSON.stringify(venue('LES Art Resort')), /Финалист|«Точный ход»|Резерв/u);
 
 const visibleData = JSON.stringify({ slides, venueDetails });
 assert.doesNotMatch(visibleData, /₽|бюджет|стоимост|ценов|\bАК\b|экономич/u);
