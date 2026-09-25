@@ -105,6 +105,27 @@ function renderKeyVisuals(keyVisuals) {
   return grid;
 }
 
+function renderVisualApplications(visualApplications) {
+  if (!visualApplications?.length) {
+    return null;
+  }
+
+  const grid = createElement('div', 'visual-applications-grid');
+
+  visualApplications.forEach(({ src, alt }) => {
+    const figure = createElement('figure', 'visual-applications-item');
+    const image = document.createElement('img');
+
+    image.src = src;
+    image.alt = alt;
+    image.loading = 'lazy';
+    figure.append(image);
+    grid.append(figure);
+  });
+
+  return grid;
+}
+
 function renderCatalogueCards(cards = []) {
   if (!cards.length) {
     return null;
@@ -163,6 +184,10 @@ function renderSlide(slide) {
 
   const keyVisuals = renderKeyVisuals(slide.keyVisuals);
   if (keyVisuals) content.append(keyVisuals);
+
+  const visualApplications = renderVisualApplications(slide.visualApplications);
+  if (visualApplications) content.append(visualApplications);
+  if (slide.applicationCaption) content.append(createElement('p', 'visual-applications-caption', slide.applicationCaption));
 
   const catalogueCards = renderCatalogueCards(slide.venueCards);
   if (catalogueCards) content.append(catalogueCards);

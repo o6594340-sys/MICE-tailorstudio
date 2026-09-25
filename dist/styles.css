@@ -365,6 +365,29 @@ img { display: block; max-width: 100%; }
 .key-visuals-item__title { margin: 0; color: var(--text); font: 600 clamp(1.35rem, 2.3vw, 2.1rem)/1.1 var(--display); letter-spacing: -0.035em; }
 .key-visuals-item__text { margin: 0.7rem 0 0; color: rgba(245, 243, 240, 0.82); font-size: clamp(0.95rem, 1.25vw, 1.1rem); line-height: 1.55; }
 
+.screen--visual-applications {
+  min-height: auto;
+  padding-top: clamp(7rem, 11vh, 10rem);
+  padding-bottom: clamp(4rem, 9vh, 8rem);
+}
+
+.screen--visual-applications::after { background: #171719; }
+.screen--visual-applications .screen-content { width: min(100%, 78rem); }
+.screen--visual-applications .screen-title { max-width: none; }
+.screen--visual-applications .screen-body { max-width: 67rem; }
+
+.visual-applications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.2rem, 3vw, 3.2rem);
+  order: 4;
+  margin-top: clamp(2.4rem, 5vw, 4.6rem);
+}
+
+.visual-applications-item { margin: 0; }
+.visual-applications-item img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.visual-applications-caption { order: 5; max-width: 58rem; margin: 1.35rem 0 0; color: var(--muted); font-size: clamp(0.95rem, 1.25vw, 1.1rem); line-height: 1.55; }
+
 .screen--experience::before,
 .screen--circle::before,
 .screen--rhythm::before,
@@ -715,6 +738,8 @@ img { display: block; max-width: 100%; }
   .screen--sources::before { inset: auto auto 12% 1.2rem; width: calc(100% - 2.4rem); height: 1px; }
   .screen--key-visuals { padding-top: 6.3rem; padding-bottom: 3.5rem; }
   .key-visuals-grid { grid-template-columns: 1fr; gap: 2.4rem; margin-top: 2.2rem; }
+  .screen--visual-applications { padding-top: 6.3rem; padding-bottom: 3.5rem; }
+  .visual-applications-grid { grid-template-columns: 1fr; gap: 1.2rem; margin-top: 2.2rem; }
   .screen--experience::before,
   .screen--circle::before,
   .screen--rhythm::before,

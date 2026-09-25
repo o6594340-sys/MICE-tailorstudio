@@ -8,8 +8,8 @@ assert.match(html, /<a class="skip-link" href="#main-content">/);
 assert.match(html, /<main id="main-content">/);
 assert.match(html, /<div id="slides-root"><\/div>/);
 
-assert.equal(slides.length, 10);
-assert.deepEqual(slides.map(({ id }) => id), [1, 2, 3, 'key-visuals', 4, 5, 6, 7, 8, 9]);
+assert.equal(slides.length, 11);
+assert.deepEqual(slides.map(({ id }) => id), [1, 2, 3, 'key-visuals', 'visual-applications', 4, 5, 6, 7, 8, 9]);
 const keyVisuals = slides.find(({ id }) => id === 'key-visuals');
 assert.equal(keyVisuals.navigable, false);
 assert.equal(keyVisuals.title, 'ГРАНАТ. Запас прочности');
@@ -18,26 +18,35 @@ assert.deepEqual(keyVisuals.keyVisuals.map(({ title, src }) => [title, src]), [
   ['Вариант 1. Точка попадания', 'assets/granat-key-visual-hit.jpg'],
   ['Вариант 2. Внутренняя опора', 'assets/granat-key-visual-support.jpg'],
 ]);
+const visualApplications = slides.find(({ id }) => id === 'visual-applications');
+assert.equal(visualApplications.navigable, false);
+assert.equal(visualApplications.title, 'Визуальное направление');
+assert.equal(visualApplications.body, 'Предлагаем развить выбранное визуальное направление в цельную айдентику мероприятия. Чёрный, графит и глубокий красный сохраняют связь с клубом «Гранат», а собранная геометрия добавляет теме «Запас прочности» характер и точность.');
+assert.deepEqual(visualApplications.visualApplications.map(({ src }) => src), [
+  'assets/granat-visual-press-wall.jpg',
+  'assets/granat-visual-table-and-diploma.jpg',
+]);
+assert.equal(visualApplications.applicationCaption, 'Это примеры возможного применения visual key. После выбора направления дорабатываем композицию, тексты и носители по официальным правилам TNPRO и клуба «Гранат».');
 assert.equal(slides[1].title, 'Прочность не берётся из воздуха.');
 assert.equal(slides[2].title, 'То, на чём держится сильный профессионал.');
-assert.equal(slides[4].title, 'День 1. Опыт');
-assert.equal(slides[4].subtitle, 'Опыт становится сильнее, когда им делятся.');
-assert.deepEqual(slides[4].body, ['Сбор, регистрация и приветственный кофе. Затем деловая программа “ГРАНАТА”: ТЕХНОНИКОЛЬ о рынке, продуктах и решениях реальных задач; разговор о качестве и репутации; истории подрядчиков; круглый стол без дистанции между сценой и залом.', 'После обеда продолжается деловая часть и проходит ежегодное награждение с вручением сертификатов. Затем заселение и свободное время.', 'Здесь не слушают лекцию. Здесь сверяют опыт.']);
-assert.equal(slides[5].title, 'Вечер 1. Круг');
-assert.equal(slides[5].subtitle, 'Когда официальная часть закончена, начинается главное.');
-assert.deepEqual(slides[5].body, ['Общий стол, хорошая кухня, лёгкая деликатная динамика ведущего, уважение к достижениям и людям в зале.', 'После банкета вечер продолжается по интересам: бар, сигары, кальяны, бильярд, боулинг, музыка и разговоры. Это не обязательная активность для всех, а возможность выбрать своё.']);
-assert.equal(slides[6].title, 'День 2. Точный ход');
-assert.equal(slides[6].subtitle, 'Спокойствие, фокус, общая цель.');
-assert.match(slides[6].body.join(' '), /После обеда начинается единый для всех командный турнир “Точный ход”/u);
-assert.match(slides[6].body.join(' '), /лазерным или пневматическим, с инструкторами и всеми необходимыми мерами безопасности/u);
-assert.equal(slides[7].title, 'Вечер 2. Свой ритм');
-assert.equal(slides[7].subtitle, 'После общего дела вечер идёт в своём ритме.');
-assert.deepEqual(slides[7].body, ['Сытный вечерний фуршет, хороший бар и итоги командного зачёта. Затем каждый выбирает своё: бильярд, сигарную или лаунж-зону, кальяны, баню, музыку и разговоры.', 'Без второй обязательной церемонии и без программы ради программы. Остаётся время для людей, с которыми хочется поговорить.']);
-assert.equal(slides[8].title, 'День 3. Спокойный выход');
-assert.equal(slides[8].body, 'Завтрак, своё время, SPA и организованный выезд в Москву.');
-assert.equal(slides[9].title, 'Семь площадок. Три рекомендации.');
-assert.equal(slides[9].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
-assert.deepEqual(slides[9].venueCards.map(({ slug }) => slug), [
+assert.equal(slides[5].title, 'День 1. Опыт');
+assert.equal(slides[5].subtitle, 'Опыт становится сильнее, когда им делятся.');
+assert.deepEqual(slides[5].body, ['Сбор, регистрация и приветственный кофе. Затем деловая программа “ГРАНАТА”: ТЕХНОНИКОЛЬ о рынке, продуктах и решениях реальных задач; разговор о качестве и репутации; истории подрядчиков; круглый стол без дистанции между сценой и залом.', 'После обеда продолжается деловая часть и проходит ежегодное награждение с вручением сертификатов. Затем заселение и свободное время.', 'Здесь не слушают лекцию. Здесь сверяют опыт.']);
+assert.equal(slides[6].title, 'Вечер 1. Круг');
+assert.equal(slides[6].subtitle, 'Когда официальная часть закончена, начинается главное.');
+assert.deepEqual(slides[6].body, ['Общий стол, хорошая кухня, лёгкая деликатная динамика ведущего, уважение к достижениям и людям в зале.', 'После банкета вечер продолжается по интересам: бар, сигары, кальяны, бильярд, боулинг, музыка и разговоры. Это не обязательная активность для всех, а возможность выбрать своё.']);
+assert.equal(slides[7].title, 'День 2. Точный ход');
+assert.equal(slides[7].subtitle, 'Спокойствие, фокус, общая цель.');
+assert.match(slides[7].body.join(' '), /После обеда начинается единый для всех командный турнир “Точный ход”/u);
+assert.match(slides[7].body.join(' '), /лазерным или пневматическим, с инструкторами и всеми необходимыми мерами безопасности/u);
+assert.equal(slides[8].title, 'Вечер 2. Свой ритм');
+assert.equal(slides[8].subtitle, 'После общего дела вечер идёт в своём ритме.');
+assert.deepEqual(slides[8].body, ['Сытный вечерний фуршет, хороший бар и итоги командного зачёта. Затем каждый выбирает своё: бильярд, сигарную или лаунж-зону, кальяны, баню, музыку и разговоры.', 'Без второй обязательной церемонии и без программы ради программы. Остаётся время для людей, с которыми хочется поговорить.']);
+assert.equal(slides[9].title, 'День 3. Спокойный выход');
+assert.equal(slides[9].body, 'Завтрак, своё время, SPA и организованный выезд в Москву.');
+assert.equal(slides[10].title, 'Семь площадок. Три рекомендации.');
+assert.equal(slides[10].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
+assert.deepEqual(slides[10].venueCards.map(({ slug }) => slug), [
   'moscow-country-club', 'peresvet', 'areal', 'freshwind', 'azimut-pereslavl', 'zavidovo', 'les-art-resort',
 ]);
 
@@ -119,6 +128,7 @@ assert.match(main, /mainContent\.focus\(\)/);
 assert.match(main, /function renderSlides\(slideData\)/);
 assert.match(main, /function renderBody\(body\)/);
 assert.match(main, /function renderKeyVisuals\(keyVisuals\)/);
+assert.match(main, /function renderVisualApplications\(visualApplications\)/);
 assert.match(main, /slideData\.filter\(\(slide\) => slide\.navigable !== false\)/);
 assert.match(main, /function renderMedia/);
 assert.match(main, /function renderCatalogueCards/);
@@ -139,10 +149,13 @@ assert.match(css, /color:\s*var\(--text\)/);
 assert.match(css, /font-family:\s*var\(--body\)/);
 assert.match(css, /\.key-visuals-grid/);
 assert.match(css, /\.screen--key-visuals/);
+assert.match(css, /\.screen--visual-applications/);
 
 await access(new URL('../dist/assets/granat-ruby-space.png', import.meta.url));
 await access(new URL('../dist/assets/granat-key-visual-hit.jpg', import.meta.url));
 await access(new URL('../dist/assets/granat-key-visual-support.jpg', import.meta.url));
+await access(new URL('../dist/assets/granat-visual-press-wall.jpg', import.meta.url));
+await access(new URL('../dist/assets/granat-visual-table-and-diploma.jpg', import.meta.url));
 const readme = await readFile(new URL('../README.md', import.meta.url), 'utf8');
 assert.match(readme, /python -m http\.server 4173 --directory dist/);
 assert.match(readme, /node scripts\/check-site\.mjs/);
