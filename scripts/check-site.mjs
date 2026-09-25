@@ -28,6 +28,11 @@ assert.deepEqual(visualApplications.visualApplications.map(({ src }) => src), [
 ]);
 assert.equal(visualApplications.applicationCaption, 'Это примеры возможного применения visual key. После выбора направления дорабатываем композицию, тексты и носители по официальным правилам TNPRO и клуба «Гранат».');
 assert.equal(slides[1].title, 'Прочность не берётся из воздуха.');
+assert.deepEqual(slides[1].body, [
+  'Её формируют опыт, точные решения и партнёры, на которых можно рассчитывать.',
+  '«Гранат» объединяет ведущих игроков бизнеса: здесь делятся практикой, укрепляют профессиональные связи и расширяют горизонт решений.',
+]);
+assert.equal(slides[1].closing, 'Не просто выходные. Следующий ход.');
 assert.equal(slides[2].title, 'То, на чём держится сильный профессионал.');
 assert.equal(slides[5].title, 'День 1. Опыт');
 assert.equal(slides[5].subtitle, 'Опыт становится сильнее, когда им делятся.');
