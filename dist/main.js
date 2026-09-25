@@ -209,6 +209,18 @@ function renderDetailBlock(slide, headingTag = 'h2') {
   if (slide.meta) block.append(createElement('p', 'screen-meta', slide.meta));
   const body = renderBody(slide.body);
   if (body) block.append(body);
+  if (slide.reference) {
+    const reference = createElement('p', 'screen-meta');
+    const link = document.createElement('a');
+    link.href = slide.reference.href;
+    link.target = '_blank';
+    link.rel = 'noreferrer';
+    link.textContent = slide.reference.label;
+    link.style.color = 'inherit';
+    link.style.textDecoration = 'underline';
+    reference.append(slide.reference.prefix, link, slide.reference.suffix);
+    block.append(reference);
+  }
 
   const media = renderMedia(slide.media);
   if (media) block.append(media);

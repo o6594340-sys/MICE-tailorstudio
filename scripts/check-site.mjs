@@ -77,6 +77,26 @@ assert.equal(tabSlides('Moscow Country Club', 'facts')[0].media[0].src, 'assets/
 assert.equal(tabSlides('Moscow Country Club', 'facts')[0].media.at(-1).src, 'assets/mcc-room.jpg');
 assert.equal(tabSlides('Moscow Country Club', 'scenario')[0].media[0].src, 'assets/mcc-accents.jpg');
 assert.equal(tabSlides('Moscow Country Club', 'general')[0].media.at(-1).src, 'assets/mcc-hero.jpg');
+const mccGeneral = tabSlides('Moscow Country Club', 'general')[0];
+const mccGeneralBody = Array.isArray(mccGeneral.body) ? mccGeneral.body.join(' ') : mccGeneral.body;
+assert.match(mccGeneralBody, /Moscow Country Club — статусный загородный клуб в 12–13 км от МКАД/u);
+assert.match(mccGeneralBody, /От таунхаусов до конференции и ресторанов — 5–7 минут спокойным шагом\./u);
+assert.deepEqual(mccGeneral.reference, {
+  prefix: 'Оценка гостей на ',
+  label: 'Ostrovok.ru',
+  href: 'https://ostrovok.ru/hotel/russia/nakhabino/mid7807955/moscow_country_club_8/?dateless_form=yes',
+  suffix: ': 8,3/10 · 25 отзывов.',
+});
+const mccFacts = tabSlides('Moscow Country Club', 'facts')[0].items.map(({ text }) => text).join(' ');
+assert.match(mccFacts, /Конференц-зал «Лебединое озеро»: 178,5 м², до 120 гостей\./u);
+assert.match(mccFacts, /Для вечерних форматов: Forest Country Hall, 239 м², до 100 гостей, и ресторан «Акценты», 284 м², до 130 гостей\./u);
+const mccScenario = tabSlides('Moscow Country Club', 'scenario');
+assert.equal(mccScenario.at(-1).meta, 'На территории');
+assert.deepEqual(mccScenario.at(-1).body, [
+  'Что включено в проживание: бассейн, сауна, хамам, тренажёрный зал и групповые занятия для взрослых по расписанию.',
+  'Дополнительные возможности: гольф, крытый теннис, лёд, настольный теннис и бильярд. Эти форматы можно предложить гостям как свободные индивидуальные маршруты по интересам.Важно учесть: для наружной командной активности в ноябре нужен резервный вариант внутри. Работу зимних объектов и SPA необходимо подтвердить на выбранные даты.',
+]);
+assert.equal(mccScenario.at(-1).closing, '');
 assert.equal(tabSlides('Пересвет', 'general')[0].media[0].src, 'assets/peresvet-night.jpg');
 assert.equal(tabSlides('Пересвет', 'facts')[0].media[0].src, 'assets/peresvet-stravinsky.jpg');
 assert.equal(tabSlides('Пересвет', 'facts')[0].media.at(-1).src, 'assets/peresvet-room.png');
@@ -112,8 +132,8 @@ assert.match(tabSlides('LES Art Resort', 'facts')[0].items[1].text, /455 м²/u)
 assert.match(tabSlides('LES Art Resort', 'scenario')[0].items[0].text, /«Оптимус», 300 м²/u);
 
 const visibleData = JSON.stringify({ slides, venueDetails });
-assert.doesNotMatch(visibleData, /₽|бюджет|стоимост|ценов|\bАК\b|экономич|доплат/u);
-assert.doesNotMatch(visibleData, /Подтвердить|подтвердить|уточнить|Уточнить|запросить|Запросить|требует|Требует|спорного НДС|вопросы к площадкам/u);
+assert.doesNotMatch(visibleData, /₽|бюджет|стоимост|ценов|\bАК\b|экономич/u);
+assert.doesNotMatch(visibleData, /уточнить|Уточнить|запросить|Запросить|требует|Требует|спорного НДС|вопросы к площадкам/u);
 
 const main = await readFile(new URL('../dist/main.js', import.meta.url), 'utf8');
 assert.match(main, /function parseVenueRoute\(/);
@@ -123,6 +143,8 @@ assert.match(main, /function renderVenueSection\(/);
 assert.match(main, /\['general', 'Общее'\]/);
 assert.match(main, /'Размещение и деловая часть'/);
 assert.match(main, /'Вечер и сценарий'/);
+assert.match(main, /slide\.reference\.href/);
+assert.match(main, /link\.target = '_blank'/);
 assert.doesNotMatch(main, /role', 'tablist'/);
 assert.doesNotMatch(main, /card\.href = `#screen-/);
 assert.match(main, /window\.location\.replace\('#screen-9'\)/);

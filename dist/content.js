@@ -13,7 +13,7 @@ export const venueLinks = {
 };
 
 const venueSlides = (start, venue, portrait, facts, scenario, decision) => [
-  slide(start, 'venue-portrait', portrait.title, { venue, eyebrow: portrait.eyebrow, body: portrait.body, closing: portrait.closing, media: portrait.media ?? [] }),
+  slide(start, 'venue-portrait', portrait.title, { venue, eyebrow: portrait.eyebrow, body: portrait.body, reference: portrait.reference, closing: portrait.closing, media: portrait.media ?? [] }),
   slide(start + 1, 'venue-facts', `${venue}. Размещение и деловая часть.`, { venue, items: facts, closing: decision.factsClosing ?? '', media: decision.factsMedia ?? [] }),
   slide(start + 2, 'venue-scenario', `${venue}. Сценарий площадки.`, { venue, items: scenario, media: decision.scenarioMedia ?? [] }),
   slide(start + 3, 'venue-decision', `${venue}. Сценарий.`, { venue, meta: decision.meta, body: decision.body, items: decision.items, closing: decision.closing }),
@@ -21,12 +21,12 @@ const venueSlides = (start, venue, portrait, facts, scenario, decision) => [
 
 const venues = [
   ...venueSlides(6, 'Moscow Country Club',
-    { title: 'Moscow Country Club. Закрытый взрослый клуб ближе всего к Москве.', eyebrow: 'Нахабино · 12–13 км от МКАД · 30–45 минут', body: '120 га охраняемой территории, гостиница, коттеджи, таунхаусы, гольф-клуб и спорткомплекс.', closing: 'Роль: клубная интонация и близость к Москве.', media: [
+    { title: 'Moscow Country Club. Закрытый взрослый клуб ближе всего к Москве.', eyebrow: 'Нахабино · 12–13 км от МКАД · 30–45 минут', body: ['120 га охраняемой территории, гостиница, коттеджи, таунхаусы, гольф-клуб и спорткомплекс.', 'Moscow Country Club — статусный загородный клуб в 12–13 км от МКАД. Ориентир в пути: 30–45 минут без выраженных пробок. Для группы предусмотрены 84 гостиничных номера и два таунхауса с тремя спальнями, всего 90 отдельных спальных мест. Заезд с 15:00, выезд до 12:00.', 'От таунхаусов до конференции и ресторанов — 5–7 минут спокойным шагом.'], reference: { prefix: 'Оценка гостей на ', label: 'Ostrovok.ru', href: 'https://ostrovok.ru/hotel/russia/nakhabino/mid7807955/moscow_country_club_8/?dateless_form=yes', suffix: ': 8,3/10 · 25 отзывов.' }, closing: 'Роль: клубная интонация и близость к Москве.', media: [
       { src: 'assets/mcc-hero.jpg', alt: 'Главный вид Moscow Country Club', caption: 'Общий вид площадки' },
     ] },
-    [{ title: 'Размещение', text: '80 одноместных номеров, 2 люкса с двумя спальнями, 2 таунхауса с тремя спальнями.' }, { title: 'Формат', text: 'Номера и таунхаусы дают гибкую схему размещения группы.' }, { title: 'Forest Country Hall', text: 'Около 240 м², до 120 гостей. LED-экран, звук, 2 микрофона.' }],
+    [{ title: 'Размещение', text: '80 одноместных номеров, 2 люкса с двумя спальнями, 2 таунхауса с тремя спальнями.' }, { title: 'Формат', text: 'Номера и таунхаусы дают гибкую схему размещения группы.' }, { title: 'Forest Country Hall', text: 'Около 240 м², до 120 гостей. LED-экран, звук, 2 микрофона.' }, { title: 'Конференц-зал «Лебединое озеро»', text: 'Конференц-зал «Лебединое озеро»: 178,5 м², до 120 гостей. Включены экран, флипчарт, бумага и карандаши; перестановка из театра за круглые столы возможна без доплаты.' }, { title: 'Вечерние форматы', text: 'Для вечерних форматов: Forest Country Hall, 239 м², до 100 гостей, и ресторан «Акценты», 284 м², до 130 гостей. Рядом с вечерними залами есть бильярдные столы.' }],
     [{ title: 'Вечера', text: 'Ресторан «Акценты», 284 м², до 130 гостей. Вечерняя программа до 02:00.' }, { title: '«Точный ход»', text: 'Привозной турнир на outdoor-зоне с обязательным indoor-планом B.' }, { title: 'Маршруты', text: 'Бассейн, сауна, хамам и тренажёрный зал.' }],
-    { items: [{ title: 'Сценарий', text: 'Деловая часть, клубный вечер, outdoor-модуль с indoor-планом B.' }], closing: 'Финалист: близко к Москве, клубный формат, гибкое размещение.', factsClosing: 'Пересетап занимает до 2,5 часов.', factsMedia: [
+    { meta: 'На территории', body: ['Что включено в проживание: бассейн, сауна, хамам, тренажёрный зал и групповые занятия для взрослых по расписанию.', 'Дополнительные возможности: гольф, крытый теннис, лёд, настольный теннис и бильярд. Эти форматы можно предложить гостям как свободные индивидуальные маршруты по интересам.Важно учесть: для наружной командной активности в ноябре нужен резервный вариант внутри. Работу зимних объектов и SPA необходимо подтвердить на выбранные даты.'], items: [{ title: 'Сценарий', text: 'Деловая часть, клубный вечер, outdoor-модуль с indoor-планом B.' }], closing: '', factsClosing: 'Пересетап занимает до 2,5 часов.', factsMedia: [
       { src: 'assets/mcc-forest-country-hall.jpg', alt: 'Forest Country Hall Moscow Country Club', caption: 'Деловая часть · Forest Country Hall' },
       { src: 'assets/mcc-room.jpg', alt: 'Номер Moscow Country Club', caption: 'Размещение · номер' },
     ], scenarioMedia: [
