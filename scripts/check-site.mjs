@@ -8,8 +8,8 @@ assert.match(html, /<a class="skip-link" href="#main-content">/);
 assert.match(html, /<main id="main-content">/);
 assert.match(html, /<div id="slides-root"><\/div>/);
 
-assert.equal(slides.length, 11);
-assert.deepEqual(slides.map(({ id }) => id), [1, 2, 3, 'key-visuals', 'visual-applications', 4, 5, 6, 7, 8, 9]);
+assert.equal(slides.length, 12);
+assert.deepEqual(slides.map(({ id }) => id), [1, 2, 3, 'key-visuals', 'visual-applications', 4, 5, 6, 7, 8, 'shared-game', 9]);
 const keyVisuals = slides.find(({ id }) => id === 'key-visuals');
 assert.equal(keyVisuals.navigable, false);
 assert.equal(keyVisuals.title, 'ГРАНАТ. Запас прочности');
@@ -44,9 +44,15 @@ assert.equal(slides[8].subtitle, 'После общего дела вечер и
 assert.deepEqual(slides[8].body, ['Сытный вечерний фуршет, хороший бар и итоги командного зачёта. Затем каждый выбирает своё: бильярд, сигарную или лаунж-зону, кальяны, баню, музыку и разговоры.', 'Без второй обязательной церемонии и без программы ради программы. Остаётся время для людей, с которыми хочется поговорить.']);
 assert.equal(slides[9].title, 'День 3. Спокойный выход');
 assert.equal(slides[9].body, 'Завтрак, своё время, SPA и организованный выезд в Москву.');
-assert.equal(slides[10].title, 'Семь площадок. Три рекомендации.');
-assert.equal(slides[10].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
-assert.deepEqual(slides[10].venueCards.map(({ slug }) => slug), [
+const sharedGame = slides.find(({ id }) => id === 'shared-game');
+assert.equal(sharedGame.navigable, false);
+assert.equal(sharedGame.eyebrow, 'День 2. Общая игра');
+assert.equal(sharedGame.title, 'Точный ход');
+assert.equal(sharedGame.subtitle, 'Запас прочности в действии.');
+assert.deepEqual(sharedGame.body, ['В стрельбе важна не только точность первого попадания. Важнее сохранить спокойствие после промаха, быстро скорректироваться и довести общий результат до цели.', 'Предлагаем общий командный стрелковый турнир: смешанные команды проходят несколько понятных рубежей, набирают баллы и сходятся в финале. Здесь опыт каждого усиливает команду, а команда добавляет уверенности каждому.', 'Вот это и есть запас прочности: не безошибочность, а способность собраться, сделать точный ход и идти дальше.', 'На площадке со своей стрелковой инфраструктурой используем её возможности. На других площадках привозим мобильный лазерный или пневматический формат с инструкторами и организованной зоной проведения. Точную механику выбираем после подтверждения территории; турнир проходит во второй половине дня, до алкоголя.']);
+assert.equal(slides[11].title, 'Семь площадок. Три рекомендации.');
+assert.equal(slides[11].body, 'Единая логика оценки: дорога, размещение, зал, два вечера, «Точный ход», маршруты, ограничения.');
+assert.deepEqual(slides[11].venueCards.map(({ slug }) => slug), [
   'moscow-country-club', 'peresvet', 'areal', 'freshwind', 'azimut-pereslavl', 'zavidovo', 'les-art-resort',
 ]);
 
