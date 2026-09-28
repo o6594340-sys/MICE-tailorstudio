@@ -207,6 +207,7 @@ assert.deepEqual(freshwindScenario.at(-1).body, [
   'Перед финальным выбором необходимо подтвердить режим работы SPA, доступные слоты для группы, вместимость вечерних зон, а также работу уличных активностей в ноябре. Для осенней даты основной акцент стоит делать на внутренних пространствах.',
 ]);
 assert.doesNotMatch(JSON.stringify(venue('FreshWind')), /Финалист|«Точный ход»/u);
+assert.equal(venue('FreshWind').presentationUrl, 'assets/freshwind-presentation.pdf');
 assert.equal(tabSlides('«Завидово»', 'general')[0].media.at(-1).src, 'assets/zavidovo-hero.jpg');
 assert.equal(tabSlides('«Завидово»', 'facts')[0].media[0].src, 'assets/zavidovo-chaika.jpg');
 assert.equal(tabSlides('«Завидово»', 'facts')[0].media.at(-1).src, 'assets/zavidovo-room.jpg');

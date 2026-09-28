@@ -246,6 +246,9 @@ function renderVenueDetail(venue) {
   const back = createElement('a', 'venue-back-link', '← К площадкам');
   const title = createElement('h1', 'screen-title', venue.title);
   const externalLink = createElement('a', 'venue-external-link', 'Сайт площадки ↗');
+  const presentationLink = venue.presentationUrl
+    ? createElement('a', 'venue-external-link', 'Презентация отеля ↗')
+    : null;
   const sections = [
     ['general', 'Общее'],
     ['facts', 'Размещение и деловая часть'],
@@ -260,7 +263,12 @@ function renderVenueDetail(venue) {
   externalLink.href = venue.externalUrl;
   externalLink.target = '_blank';
   externalLink.rel = 'noreferrer';
-  content.append(back, title, externalLink, ...sections.map(([key, label]) => renderVenueSection(venue, key, label)));
+  if (presentationLink) {
+    presentationLink.href = venue.presentationUrl;
+    presentationLink.target = '_blank';
+    presentationLink.rel = 'noreferrer';
+  }
+  content.append(back, title, externalLink, ...(presentationLink ? [presentationLink] : []), ...sections.map(([key, label]) => renderVenueSection(venue, key, label)));
   section.append(content);
   return section;
 }

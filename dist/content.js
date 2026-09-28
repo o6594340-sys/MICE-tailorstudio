@@ -12,6 +12,10 @@ export const venueLinks = {
   'LES Art Resort': 'https://lesresort.ru/',
 };
 
+export const venuePresentationLinks = {
+  FreshWind: 'assets/freshwind-presentation.pdf',
+};
+
 const venueSlides = (start, venue, portrait, facts, scenario, decision) => [
   slide(start, 'venue-portrait', portrait.title, { venue, eyebrow: portrait.eyebrow, body: portrait.body, reference: portrait.reference, closing: portrait.closing, media: portrait.media ?? [] }),
   slide(start + 1, 'venue-facts', `${venue}. Размещение и деловая часть.`, { venue, items: facts, closing: decision.factsClosing ?? '', media: decision.factsMedia ?? [] }),
@@ -182,6 +186,7 @@ function createVenueDetails(venue) {
     slug: venueSlugs[venue],
     title: venue,
     externalUrl: venueLinks[venue],
+    presentationUrl: venuePresentationLinks[venue],
     tabs: {
       general: { slides: [portrait] },
       facts: { slides: [facts] },

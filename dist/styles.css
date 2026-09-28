@@ -630,6 +630,10 @@ img { display: block; max-width: 100%; }
   color: #ff8eb0;
 }
 
+.venue-external-link + .venue-external-link {
+  margin-left: 1.25rem;
+}
+
 .venue-tabs {
   display: flex;
   flex-wrap: wrap;
