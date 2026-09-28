@@ -143,7 +143,7 @@ assert.deepEqual(peresvetScenario.at(-1).body, [
   'Все активности планируются по слотам и потокам. До окончательного выбора площадки необходимо подтвердить ноябрьский график работы SPA, ледовой арены, боулинга и тенниса, а также отсутствие реконструкций.',
 ]);
 assert.doesNotMatch(JSON.stringify(venue('Пересвет')), /Финалист|«Точный ход»/u);
-assert.equal(tabSlides('AZIMUT Переславль', 'facts')[0].media[0].src, 'assets/azimut-zalesskiy-theatre.jpg');
+assert.equal(tabSlides('AZIMUT Переславль', 'facts')[0].media[0].src, 'assets/azimut-pereslavl-conference.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'scenario')[0].media[0].src, 'assets/azimut-pereslavl-banquet.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'scenario')[0].media.at(-1).src, 'assets/azimut-banya.jpg');
 assert.equal(tabSlides('AZIMUT Переславль', 'general')[0].media.at(-1).src, 'assets/azimut-hero.jpg');

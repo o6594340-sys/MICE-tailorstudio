@@ -103,7 +103,7 @@ const venues = [
     [],
     {
       factsMedia: [
-        { src: 'assets/azimut-zalesskiy-theatre.jpg', alt: 'Зал «Залесский» в театральной рассадке, AZIMUT Парк Отель Переславль', caption: 'Альтернативный деловой зал · «Залесский», театр' },
+        { src: 'assets/azimut-pereslavl-conference.jpg', alt: 'Конференц-зал «Переславль-Залесский», AZIMUT Парк Отель Переславль', caption: 'Деловая часть · «Переславль-Залесский», конференция' },
         { src: 'assets/azimut-room.jpg', alt: 'Номер AZIMUT Переславль', caption: 'Размещение · номер' },
       ],
       scenarioMedia: [
