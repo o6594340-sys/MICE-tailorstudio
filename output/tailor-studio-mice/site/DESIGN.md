@@ -40,7 +40,7 @@ The page alternates full-bleed moments with generous warm-white reading space. P
 
 ## Photography
 
-Real, candid and lightly imperfect photography is the norm. The final page uses 19 supplied real photographs across documentary life, transport, hospitality, venues, craft and city scale. Three selective AI food still lifes act only as editorial pauses, remain visibly labelled as illustrative, and never stand in for a real venue or completed project.
+Real, candid and lightly imperfect photography is the norm. Supplied photographs lead across documentary life, transport, hospitality, venues, craft and city scale. Two selective AI food still lifes act only as editorial pauses, remain visibly labelled as illustrative, and never stand in for a real venue or completed project.
 
 Display derivatives are gently normalised with non-destructive day, night and indoor treatments. The originals remain untouched in the intake archive.
 

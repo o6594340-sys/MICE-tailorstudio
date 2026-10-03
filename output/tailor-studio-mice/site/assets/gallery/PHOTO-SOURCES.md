@@ -28,12 +28,12 @@ The JPEGs in this folder are display derivatives: EXIF orientation applied, long
 - `mosaic-silk.jpg` — batch 03 / `IMG_0749.jpeg`
 - `mosaic-crab-kitchen.jpg` — batch 04 / `IMG_0842.jpeg`
 - `mosaic-bar.jpg` — batch 04 / `IMG_0850.jpeg`
+- `editorial-peking-duck.jpg` — user-supplied / `утка.jpg`, 2026-10-03
 
 ## AI editorial details
 
-These three images are visually labelled “illustrative editorial image” on the page and are never used as proof of a real venue, destination, client, or completed project.
+These two images are visually labelled “illustrative editorial image” on the page and are never used as proof of a real venue, destination, client, or completed project.
 
-- `editorial-fish.jpg` — refined Shanghai-inspired banquet fish course on celadon, warm natural restaurant light, no people or logos.
 - `editorial-xiaolongbao.jpg` — xiaolongbao, black vinegar, ginger and resting chopsticks, natural daylight, no people or logos.
 - `editorial-tea.jpg` — Chinese tea service, osmanthus pastry and chopsticks, warm side light, no people or logos.
 

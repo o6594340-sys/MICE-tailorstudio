@@ -28,7 +28,7 @@ Tailor Studio. Light, airy, modern and editorial. Warm white, deep ink blue and 
 
 ## Photography Direction
 
-Final mix: 19 supplied real photographs and 3 selective AI food still lifes. Real imagery leads every proof-bearing section: city scale, transport, hotels, meeting rooms, banquet spaces, restaurants, streets and craft. The AI still lifes appear only in the editorial visual diary, are labelled illustrative, and do not represent real venues, destinations or completed projects.
+Final mix: supplied real photographs and 2 selective AI food still lifes. Real imagery leads every proof-bearing section: city scale, transport, hotels, meeting rooms, banquet spaces, restaurants, streets and craft. The AI still lifes appear only in the editorial visual diary, are labelled illustrative, and do not represent real venues, destinations or completed projects.
 
 ## Evidence on Hand
 
