@@ -8,6 +8,7 @@ The JPEGs in this folder are display derivatives: EXIF orientation applied, long
 - `hero-shanghai-night.jpg` — batch 04 / `IMG_0896.jpeg`
 - `hero-tea-plantation.jpg` — user-supplied / `tea plantation.jpg`, 2026-10-03
 - `hero-suzhou-boats.jpg` — user-supplied / `суджоу.jpg`, 2026-10-03
+- `detail-made-by-hand.jpg` — user-supplied / `made by hand.jpg`, 2026-10-03
 - `street-shanghai.jpg` — batch 04 / `IMG_0814.jpeg`
 - `detail-embroidery.jpg` — batch 03 / `IMG_0762.jpeg`
 - `format-meetings.jpg` — batch 04 / `IMG_0868.jpeg`
