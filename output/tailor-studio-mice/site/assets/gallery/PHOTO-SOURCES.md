@@ -13,6 +13,7 @@ The JPEGs in this folder are display derivatives: EXIF orientation applied, long
 - `detail-embroidery.jpg` — batch 03 / `IMG_0762.jpeg`
 - `format-meetings.jpg` — batch 04 / `IMG_0868.jpeg`
 - `format-incentives.jpg` — batch 03 / `IMG_0767.jpeg`
+- `format-incentives-umbrellas.jpg` — user-supplied / `зонт.jpg`, 2026-10-03
 - `format-conferences.jpg` — batch 04 / `IMG_0871.jpeg`
 - `format-events.jpg` — batch 04 / `IMG_0849.jpeg`
 - `destination-shanghai.jpg` — batch 04 / `IMG_0817.jpeg`
