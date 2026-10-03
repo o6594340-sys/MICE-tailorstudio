@@ -10,6 +10,25 @@ const footer = document.querySelector('.site-footer');
 const chapter = document.querySelector('.chapter b');
 let lastFocused = null;
 
+const heroScene = document.querySelector('.hero-scene');
+if (heroScene) {
+  const resetHeroScene = () => {
+    heroScene.classList.remove('is-engaged');
+    heroScene.style.setProperty('--hero-x', '0px');
+    heroScene.style.setProperty('--hero-y', '0px');
+  };
+  heroScene.addEventListener('pointerenter', () => heroScene.classList.add('is-engaged'));
+  heroScene.addEventListener('pointerleave', resetHeroScene);
+  heroScene.addEventListener('pointermove', (event) => {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const bounds = heroScene.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - .5;
+    const y = (event.clientY - bounds.top) / bounds.height - .5;
+    heroScene.style.setProperty('--hero-x', `${Math.round(x * 24)}px`);
+    heroScene.style.setProperty('--hero-y', `${Math.round(y * 24)}px`);
+  });
+}
+
 const menuLabels = {
   china: ['Living China', 'streets after dark · real photograph'],
   formats: ['Shared purpose', 'from meeting room to banquet hall'],
