@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Elizaveta Gannenko · Tailor Studio</title>
+<style>
+@font-face{font-family:Manrope;src:url('assets/manrope.ttf') format('truetype');font-weight:200 800;font-display:swap}
+*{box-sizing:border-box}html,body{margin:0;background:#FAF7F2}
+.business-card{width:1500px;height:900px;position:relative;overflow:hidden;display:grid;grid-template-columns:1040px 460px;background:#FAF7F2;color:#123747;font-family:Manrope,Arial,sans-serif}
+.details{padding:66px 75px;display:flex;flex-direction:column;position:relative}
+.brand{font-size:51px;line-height:1.1;letter-spacing:-1.9px;font-weight:800;display:flex;align-items:center;gap:22px}
+.mark{width:52px;height:52px;color:#FF682C;flex:none}
+.brand-sub{margin-top:16px;font-size:21px;line-height:1.5;font-weight:600;letter-spacing:2.5px;text-transform:uppercase}
+.identity{margin-top:99px}.name{margin:0;max-width:900px;font-size:66px;font-weight:800;letter-spacing:-2px;line-height:1.15}
+.department{margin-top:18px;font-size:29px;line-height:1.5;font-weight:500}
+.contacts{margin-top:65px;display:grid;gap:18px;font-size:30px;line-height:1.35;font-weight:600}.contacts a{color:inherit;text-decoration:none}
+.scope{margin-top:auto;font-size:21px;line-height:1.5;font-weight:600;display:flex;align-items:center;gap:17px}.scope:before{content:'';width:37px;height:3px;background:#FF682C}
+.portrait-panel{background:#FF682C;position:relative;padding:37px 37px 100px 0;display:flex;align-items:center}
+.portrait-frame{position:relative;width:100%;height:647px;background:white;overflow:hidden}
+.portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block}
+.portrait-panel .word,.portrait-panel>svg{display:none}
+.wechat-card{position:absolute;left:35px;bottom:24px;display:flex;align-items:center;gap:17px}.wechat-card img{width:150px;height:150px;display:block;background:#fff;padding:7px}.wechat-card span{max-width:150px;font-size:20px;font-weight:750;line-height:1.25;letter-spacing:.2px;color:#123747}.wechat-card small{display:block;margin-top:7px;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.phone-card{width:900px;height:1100px;display:block;border-top:25px solid #FF682C}
+.phone-card .details{height:1075px;padding:54px}
+.phone-card .brand{font-size:44px}.phone-card .mark{width:45px;height:45px}
+.phone-card .brand-sub{font-size:19px;letter-spacing:2px}
+.phone-card .identity{margin-top:140px;width:455px}
+.phone-card .name{font-size:55px;line-height:1.15;letter-spacing:-1.6px}
+.phone-card .department{font-size:31px;width:425px;margin-top:23px}
+.phone-card .contacts{margin-top:142px;font-size:37px;gap:23px}
+.phone-card .scope{font-size:27px;line-height:1.4;max-width:770px;gap:14px}
+.phone-card .portrait-panel{position:absolute;top:265px;right:0;width:316px;height:409px;padding:20px 28px 20px 20px}
+.phone-card .portrait-frame{height:369px}
+.phone-card .wechat-card{left:auto;right:28px;top:710px;bottom:auto;gap:0}.phone-card .wechat-card img{width:140px;height:140px;padding:6px}.phone-card .wechat-card span{display:none}
+</style>
+</head>
+<body>
+<!-- Palette approved by user: mandarin, ink blue, warm white. Original portrait, no AI retouch. Department label is not an asserted job title. Website mice.tailorstudio.ru specified by user; public availability is outside this card edit. WeChat QR is cropped only from the user-supplied code image. -->
+<main class="business-card" aria-label="Business card for Elizaveta Gannenko, Tailor Studio">
+ <section class="details">
+  <div class="brand"><svg class="mark" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M5 7h42v11H31v28H20V18H5V7Z" fill="currentColor"/></svg><span>Tailor Studio</span></div>
+  <div class="brand-sub">Meetings · Incentives · Events</div>
+  <div class="identity"><h1 class="name">Elizaveta Gannenko</h1><div class="department">MICE &amp; Corporate Travel</div></div>
+  <div class="contacts"><a href="mailto:project@tailorstudio.ru">project@tailorstudio.ru</a><a href="tel:+79162308631">+7 916 230 8631</a><a href="https://mice.tailorstudio.ru">mice.tailorstudio.ru</a></div>
+  <div class="scope">Russia inbound &amp; international MICE</div>
+ </section>
+ <aside class="portrait-panel" aria-label="Elizaveta's portrait"><div class="portrait-frame"><img src="assets/elizaveta-original.jpeg" alt="Elizaveta Gannenko"></div><span class="word">MADE TO MEASURE.</span><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M7 33 33 7M8 7h25v25" stroke="currentColor" stroke-width="3"/><div class="wechat-card"><img src="assets/wechat-qr.jpeg" alt="WeChat QR code for Elisha"><span>WeChat<small>Scan to connect</small></span></div></aside>
+</main>
+</body>
+</html>

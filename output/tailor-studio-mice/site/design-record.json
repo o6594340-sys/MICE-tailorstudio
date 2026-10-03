@@ -1,0 +1,20 @@
+{
+  "brand": "Tailor Studio",
+  "scope": "English China-focused MICE presentation and business contact page",
+  "concept": "China in Motion",
+  "palette": {
+    "paper": "#FAF7F2",
+    "ink": "#123747",
+    "mandarin": "#FF682C",
+    "mandarinSoft": "#F4C4A7"
+  },
+  "approval": "User approved a light editorial direction, China-only positioning, full-screen visual navigation and selective mandarin accents. Dark, orange-dominant and uniformly polished AI imagery are rejected.",
+  "copy": "Draft service description based on the user's stated MICE activity. No invented clients, numbers, credentials, completed case studies or awards.",
+  "photography": "Implemented with 19 supplied real photographs and 3 selective AI food still lifes. Real photographs lead all proof-bearing sections. AI still lifes are visibly labelled illustrative and are used only as editorial pauses.",
+  "contact": {
+    "email": "project@tailorstudio.ru",
+    "phone": "+7 916 230 8631",
+    "wechat": "supplied QR code"
+  },
+  "publication": "Local review version for planned mice.tailorstudio.ru; not yet published."
+}

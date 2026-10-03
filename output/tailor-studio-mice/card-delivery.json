@@ -1,0 +1,17 @@
+{
+  "brand": "Tailor Studio",
+  "name": "Elizaveta Gannenko",
+  "email": "project@tailorstudio.ru",
+  "phone": "+7 916 230 8631",
+  "department": "MICE & Corporate Travel",
+  "scope": "Russia inbound & international MICE",
+  "portrait": "Original supplied portrait; no retouching or AI edits",
+  "palette": {"mandarin": "#FF682C", "ink": "#123747", "warmWhite": "#FAF7F2"},
+  "upload": {"file": "elizaveta-gannenko-business-card-final.jpg", "width": 1500, "height": 900, "bytes": 183615, "limitBytes": 2000000},
+  "mobile": {"file": "elizaveta-gannenko-mobile-card-final.jpg", "width": 900, "height": 1100, "bytes": 136223},
+  "png": {"file": "elizaveta-gannenko-business-card-final.png", "bytes": 409394},
+  "website": "mice.tailorstudio.ru",
+  "websiteStatus": "User-specified URL added to card. Public availability not verified in this card edit.",
+  "wechat": "User-supplied WeChat code cropped to QR area only and placed on the orange panel with a WeChat label.",
+  "verified": {"fontLoaded": true, "portraitLoaded": true, "noHorizontalOverflow": true, "runtimeErrors": 0}
+}

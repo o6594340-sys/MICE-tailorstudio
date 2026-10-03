@@ -1,0 +1,13 @@
+{
+  "stage": "design comparison; not an implemented or published website",
+  "approved": false,
+  "paletteApproved": true,
+  "brand": "Tailor Studio",
+  "compositions": [
+    "LIGHT",
+    "DARK",
+    "ORANGE"
+  ],
+  "imagery": "Generated conceptual venue and dinner atmosphere, not documentary evidence of company projects.",
+  "prompt": "Use case: ui-mockup. Create ONE high-resolution design comparison board, portrait 1536x3072, containing THREE distinct premium desktop website homepage compositions stacked vertically with equal space, each website screenshot landscape, same Tailor Studio brand, not browser or laptop mockups. Thin neutral gaps. Label the rows OUTSIDE website design: \"LIGHT\", \"DARK\", \"ORANGE\". This is an English-language MICE agency presentation concept, for international trade fair organisers and corporate travel partners. Fixed palette mandarin #FF682C, ink blue #123747, warm white #FAF7F2. Sophisticated clear grotesk typography (Manrope-like), confident oversized display, NO serif, no fuchsia, no gold, no gradients, no emojis. Website brand EXACT \"Tailor Studio\". Nav \"Expertise\" \"Travel\" \"Contact\". Main headline EXACT \"MICE, made to measure.\" Support exact \"Meetings, incentives and corporate events in Russia and abroad.\" CTA \"Discuss your project\". Visible secondary line \"Russia inbound / International MICE\". Do not invent metrics, client logos, endorsements, awards, addresses, case studies or job titles. Images are purely conceptual atmosphere and not real Tailor Studio work: elegant sunlit coastal modern venue and tasteful small group business dinner, no brands. LIGHT composition: warm-white spacious masthead and huge ink-blue headline on left, large orange-framed coastal-venue photo on right, orange CTA, sophisticated distinctive negative space, next section visible with editorial services list. DARK composition: deep ink-blue large dominant atmospheric photo region of warmly lit outdoor business dinner, white bold headline art directed over quieter area, orange clear CTA and orange bottom horizontal \"Meetings / Incentives / Conferences / Events\" region, second fold partly shown. ORANGE composition: mandarin-dominant bold poster-like homepage, large ink-blue type staggered across orange top, wide coastal venue photography strip integrated below, warm white services section showing beginning. Give all three same quality and true desktop-page proportions, readable realistic UI and exact text. Output a polished flat art-direction board with three functional-looking designs, NOT a moodboard of swatches and NOT isolated posters. No fictional projects."
+}

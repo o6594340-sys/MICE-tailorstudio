@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="600" viewBox="0 0 2400 600" role="img" aria-labelledby="title desc">
+  <title id="title">Tailor Studio</title>
+  <desc id="desc">Orange T symbol with Tailor Studio wordmark in deep ink blue.</desc>
+  <style>
+    @font-face {
+      font-family: "Manrope";
+      src: url("../site/assets/manrope.ttf") format("truetype");
+      font-weight: 200 800;
+    }
+    .wordmark {
+      fill: #123747;
+      font-family: "Manrope", Arial, sans-serif;
+      font-size: 250px;
+      letter-spacing: -9px;
+    }
+  </style>
+  <path fill="#FF682C" d="M72 112h292v76H257v300h-78V188H72z"/>
+  <text class="wordmark" x="424" y="394">
+    <tspan font-weight="720">Tailor</tspan>
+    <tspan dx="28" font-weight="430">Studio</tspan>
+  </text>
+</svg>

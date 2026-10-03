@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T15:58:27Z",
+  "title": "Design System: Tailor Studio MICE",
+  "extensions": {
+    "colorMeta": {
+      "paper": {"role":"neutral","displayName":"Warm paper","tonalRamp":["oklch(15% .008 75)","oklch(27% .008 75)","oklch(39% .008 75)","oklch(51% .008 75)","oklch(63% .008 75)","oklch(75% .008 75)","oklch(87% .008 75)","oklch(95% .008 75)"]},
+      "ink": {"role":"neutral","displayName":"Deep blue ink","tonalRamp":["oklch(15% .05 230)","oklch(27% .05 230)","oklch(39% .05 230)","oklch(51% .05 230)","oklch(63% .05 230)","oklch(75% .05 230)","oklch(87% .05 230)","oklch(95% .05 230)"]},
+      "orange": {"role":"primary","displayName":"Mandarin","tonalRamp":["oklch(15% .19 39)","oklch(27% .19 39)","oklch(39% .19 39)","oklch(51% .19 39)","oklch(63% .19 39)","oklch(75% .19 39)","oklch(87% .19 39)","oklch(95% .19 39)"]},
+      "soft": {"role":"neutral","displayName":"Soft paper","tonalRamp":["oklch(15% .01 85)","oklch(27% .01 85)","oklch(39% .01 85)","oklch(51% .01 85)","oklch(63% .01 85)","oklch(75% .01 85)","oklch(87% .01 85)","oklch(95% .01 85)"]},
+      "muted": {"role":"neutral","displayName":"Muted ink","tonalRamp":["oklch(15% .03 225)","oklch(27% .03 225)","oklch(39% .03 225)","oklch(51% .03 225)","oklch(63% .03 225)","oklch(75% .03 225)","oklch(87% .03 225)","oklch(95% .03 225)"]},
+      "line": {"role":"neutral","displayName":"Pale divider","tonalRamp":["oklch(15% .006 160)","oklch(27% .006 160)","oklch(39% .006 160)","oklch(51% .006 160)","oklch(63% .006 160)","oklch(75% .006 160)","oklch(87% .006 160)","oklch(95% .006 160)"]},
+      "full-stop": {"role":"primary","displayName":"Deep mandarin punctuation","tonalRamp":["oklch(15% .19 37)","oklch(27% .19 37)","oklch(39% .19 37)","oklch(51% .19 37)","oklch(63% .19 37)","oklch(75% .19 37)","oklch(87% .19 37)","oklch(95% .19 37)"]}
+    },
+    "typographyMeta": {"display":{"displayName":"Display","purpose":"Hero headline."},"headline":{"displayName":"Headline","purpose":"Introduction and expertise headings."},"body":{"displayName":"Body","purpose":"Default document text."},"action":{"displayName":"Action","purpose":"Primary email action."}},
+    "shadows": [],
+    "motion": [{"name":"ease","value":"cubic-bezier(.16,1,.3,1)","purpose":"Venue image clip opening over 1s; disabled for reduced motion."},{"name":"button-colors","value":"background .18s,color .18s","purpose":"Primary action hover; disabled for reduced motion."}],
+    "breakpoints": [{"name":"wide-min","value":"1450px"},{"name":"compact-max","value":"1150px"},{"name":"stacked-max","value":"800px"},{"name":"phone-max","value":"430px"}]
+  },
+  "components": [
+    {
+      "name":"Primary email action","kind":"button","refersTo":"button-primary","description":"Flat mandarin action with the implemented ink hover and keyboard focus.",
+      "html":"<a class=\"ds-button\" href=\"mailto:project@tailorstudio.ru\">Discuss your project <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></a>",
+      "css":".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:28px;min-height:56px;padding:16px 24px;background:var(--orange,#FF682C);color:var(--ink,#123747);font-family:Manrope,Arial,sans-serif;font-size:14px;font-weight:750;text-decoration:none;border-radius:3px;transition:background .18s,color .18s}.ds-button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.ds-button:hover{background:var(--ink,#123747);color:var(--paper,#FAF7F2)}.ds-button:focus-visible{outline:3px solid var(--ink,#123747);outline-offset:7px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+    },
+    {
+      "name":"Route text link","kind":"custom","description":"Underlined-on-hover route enquiry with a small arrow.",
+      "html":"<a class=\"ds-route\" href=\"mailto:project@tailorstudio.ru\">Plan a programme in Russia <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></a>",
+      "css":".ds-route{display:inline-flex;gap:20px;align-items:center;font-family:Manrope,Arial,sans-serif;font-size:14px;font-weight:700;color:var(--ink,#123747);text-decoration:none;text-underline-offset:5px;min-height:44px}.ds-route svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.ds-route:hover{text-decoration:underline}.ds-route:focus-visible{outline:3px solid var(--ink,#123747);outline-offset:7px}"
+    },
+    {
+      "name":"Header navigation","kind":"nav","description":"Compact links retaining only the contact action on narrow screens.",
+      "html":"<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#expertise\">Our expertise</a><a href=\"#travel\">Travel with purpose</a><a class=\"ds-contact\" href=\"#contact\">Get in touch <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 19 19 5M6 5h13v13\"/></svg></a></nav>",
+      "css":".ds-nav{display:flex;align-items:center;gap:39px;font-family:Manrope,Arial,sans-serif;color:var(--ink,#123747)}.ds-nav a{font-size:14px;font-weight:600;color:inherit;text-decoration:none;text-underline-offset:5px}.ds-nav a:hover{text-decoration:underline}.ds-nav a:focus-visible{outline:3px solid var(--ink,#123747);outline-offset:7px}.ds-nav .ds-contact{display:flex;align-items:center;gap:14px}.ds-nav svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}@media(max-width:800px){.ds-nav{gap:0}.ds-nav a:not(.ds-contact){display:none}.ds-nav .ds-contact{font-size:13px;min-height:44px;gap:10px}}"
+    },
+    {
+      "name":"Service row","kind":"custom","description":"Unboxed title and muted description with a pale divider.",
+      "html":"<dl class=\"ds-service\"><div><dt>Meetings</dt><dd>Business meetings, strategy sessions and company gatherings.</dd></div></dl>",
+      "css":".ds-service{margin:0;font-family:Manrope,Arial,sans-serif;color:var(--ink,#123747)}.ds-service>div{display:grid;grid-template-columns:190px 1fr;gap:27px;padding:25px 0;border-bottom:1px solid var(--line,#D8DDDA)}.ds-service dt{font-size:24px;font-weight:600;line-height:1.4;letter-spacing:-.025em}.ds-service dd{margin:0;font-size:15px;line-height:1.7;color:var(--muted,#526871)}@media(max-width:1150px){.ds-service>div{grid-template-columns:145px 1fr;gap:15px}}@media(max-width:800px){.ds-service>div{grid-template-columns:155px 1fr;padding:23px 0}.ds-service dt{font-size:23px}.ds-service dd{font-size:14px}}@media(max-width:430px){.ds-service>div{grid-template-columns:1fr;gap:8px}.ds-service dd{font-size:15px}}"
+    },
+    {
+      "name":"Wordmark","kind":"custom","description":"Two Manrope weights and a small mandarin square.",
+      "html":"<a class=\"ds-wordmark\" href=\"#\" aria-label=\"Tailor Studio home\">Tailor<span>Studio</span><i aria-hidden=\"true\"></i></a>",
+      "css":".ds-wordmark{font-family:Manrope,Arial,sans-serif;color:var(--ink,#123747);font-size:26px;line-height:1.2;font-weight:750;letter-spacing:-1.2px;display:inline-flex;align-items:baseline;gap:5px;text-decoration:none;white-space:nowrap}.ds-wordmark span{font-weight:450}.ds-wordmark i{display:inline-block;width:7px;height:7px;background:var(--orange,#FF682C);margin-left:2px}.ds-wordmark:focus-visible{outline:3px solid var(--ink,#123747);outline-offset:7px}@media(max-width:800px){.ds-wordmark{font-size:23px}}"
+    }
+  ],
+  "narrative": {
+    "northStar":"Airy international MICE studio",
+    "overview":"Light, airy and clean: large ink sans-serif typography sits on warm-white paper, with generous space and daylight imagery. The first view is now an asymmetric real-photo collage: magnolia in a Suzhou garden, a willow-lined canal boat and butterfly embroidery sit beside the left-aligned title and copy on desktop, then below that copy on mobile. Restrained mandarin accents bring energy and positivity. This records the implemented local draft; publication remains unresolved.",
+    "keyCharacteristics":["Spacious, light composition.","Large, clear Manrope headings.","An asymmetric real-photo hero collage with garden, water and handwork.","Flat controls and unboxed editorial lists.","Small, purposeful mandarin accents."],
+    "rules":[{"name":"The Restrained Accent Rule","body":"Keep mandarin in purposeful small elements: the main action, wordmark square and scope separator.","section":"colors"}],
+    "dos":["Do use warm-white space, large ink Manrope headings and restrained mandarin accents.","Do keep the hero title and copy left of the collage on desktop, then above it on mobile.","Do keep the hero collage real-photo, asymmetric and limited to magnolia Suzhou garden, willow-lined canal boat and butterfly embroidery.","Do keep service descriptions unboxed and venue imagery unframed.","Do preserve visible keyboard focus and reduced-motion behavior."],
+    "donts":["Don't introduce the rejected dark presentation or orange-dominant block layout.","Don't treat illustrative venue imagery as evidence of a completed project."]
+  }
+}
