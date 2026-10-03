@@ -127,6 +127,25 @@ document.querySelectorAll('.format-row').forEach((button) => {
   });
 });
 
+const curiosityRail = document.querySelector('.statement-collage');
+const curiosityHint = document.querySelector('#curiosity-scroll-hint span');
+if (curiosityHint) {
+  curiosityHint.textContent = window.matchMedia('(min-width: 801px)').matches
+    ? 'Drag → to explore'
+    : 'Swipe → to explore';
+}
+if (curiosityRail) {
+  curiosityRail.addEventListener('keydown', (event) => {
+    if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const step = Math.min(curiosityRail.clientWidth * .8, 360);
+    if (event.key === 'ArrowRight') curiosityRail.scrollBy({ left: step, behavior: 'auto' });
+    if (event.key === 'ArrowLeft') curiosityRail.scrollBy({ left: -step, behavior: 'auto' });
+    if (event.key === 'Home') curiosityRail.scrollTo({ left: 0, behavior: 'auto' });
+    if (event.key === 'End') curiosityRail.scrollTo({ left: curiosityRail.scrollWidth, behavior: 'auto' });
+  });
+}
+
 const destinationPhoto = document.querySelector('.destination-photo');
 const destinationPanel = document.querySelector('.destination-panel');
 const destinationTabs = [...document.querySelectorAll('.destination-tabs button')];

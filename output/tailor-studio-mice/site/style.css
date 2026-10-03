@@ -19,6 +19,34 @@
 @media(max-width:440px){.statement-collage{grid-template-columns:1fr .7fr;gap:9px}.photo-slot--portrait{height:330px}.photo-slot--detail{height:190px}.destination-photo{min-height:390px}.source-photo{height:360px}.approach-steps li{grid-template-columns:46px 1fr}.site-footer>span{width:100%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.site-menu,.format-row span,.destination-tabs button{transition:none}.scroll-cue i:after{animation:none}}
 
+/* Quiet refinements: retain the editorial layout while improving clarity and control. */
+.site-header.is-scrolled{background:var(--paper)}
+.formats-intro p{color:rgba(250,247,242,.72)}
+.format-row small{color:rgba(250,247,242,.66)}
+.format-row{position:relative}
+.format-row.is-active:after{content:"";position:absolute;right:0;top:50%;width:28px;height:2px;background:var(--orange-soft);transform:translateY(-50%)}
+.format-row.is-active span{color:var(--orange-soft);transform:translateX(8px)}
+.destination-tabs button[aria-selected="true"]{color:var(--orange-text);transform:translateX(12px)}
+.statement-collage .tone-day:after{background:linear-gradient(180deg,transparent 46%,rgba(18,55,71,.48))}
+.statement-collage .photo-slot figcaption span{font-size:clamp(19px,1.9vw,31px)}
+@media(min-width:801px){
+ .statement-copy p,.destination-heading p,.sourcing-head p,.approach-heading p{color:#3b5a66}
+ .destination-heading p,.sourcing-head p{font-size:18px}
+}
+@media(hover:hover) and (pointer:fine){
+ .format-row:hover span{color:var(--orange-soft);transform:translateX(8px)}
+ .destination-tabs button:hover{color:var(--orange-text);transform:translateX(12px)}
+ .diary-card:hover img{transform:scale(1.018)}
+}
+@media(hover:none),(pointer:coarse){
+ .format-row:hover span,.destination-tabs button:hover{color:inherit;transform:none}
+ .format-row.is-active span,.destination-tabs button[aria-selected="true"]{color:var(--orange-text);transform:translateX(8px)}
+ .diary-card:hover img{transform:none}
+}
+@media(max-width:440px){
+ .diary-card--lobby,.diary-card--fish,.diary-card--tea{height:270px}
+}
+
 /* Final photographic edit */
 .photo-slot{margin:0;color:var(--white);background:var(--mist);isolation:isolate}
 .photo-slot:before{display:none}
