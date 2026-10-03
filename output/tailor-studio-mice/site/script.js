@@ -11,7 +11,7 @@ const chapter = document.querySelector('.chapter b');
 let lastFocused = null;
 
 const heroScene = document.querySelector('.hero-scene');
-if (heroScene) {
+if (heroScene && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const resetHeroScene = () => {
     heroScene.classList.remove('is-engaged');
     heroScene.style.setProperty('--hero-x', '0px');
@@ -42,13 +42,20 @@ function swapMedia(figure, source, alt) {
   const image = figure.querySelector('img');
   if (!image || image.getAttribute('src') === source) return;
   figure.classList.add('is-changing');
+  figure.setAttribute('aria-busy', 'true');
   const next = new Image();
   next.onload = () => {
     image.src = source;
     image.alt = alt;
-    requestAnimationFrame(() => figure.classList.remove('is-changing'));
+    requestAnimationFrame(() => {
+      figure.classList.remove('is-changing');
+      figure.removeAttribute('aria-busy');
+    });
   };
-  next.onerror = () => figure.classList.remove('is-changing');
+  next.onerror = () => {
+    figure.classList.remove('is-changing');
+    figure.removeAttribute('aria-busy');
+  };
   next.src = source;
 }
 
@@ -124,13 +131,23 @@ const destinationPanel = document.querySelector('.destination-panel');
 const destinationTabs = [...document.querySelectorAll('.destination-tabs button')];
 destinationTabs.forEach((button, index) => {
   button.addEventListener('click', () => {
-    destinationTabs.forEach((item) => item.setAttribute('aria-selected', 'false'));
+    destinationTabs.forEach((item) => {
+      item.setAttribute('aria-selected', 'false');
+      item.tabIndex = -1;
+    });
     button.setAttribute('aria-selected', 'true');
+    button.tabIndex = 0;
     destinationPhoto.querySelector('span').textContent = button.dataset.city;
     destinationPhoto.querySelector('small').textContent = button.dataset.theme;
     swapMedia(destinationPhoto, button.dataset.image, button.dataset.alt);
+    destinationPanel.classList.add('is-changing');
+    destinationPanel.setAttribute('aria-busy', 'true');
     destinationPanel.querySelector('p').textContent = button.dataset.copy;
     destinationPanel.setAttribute('aria-labelledby', button.id);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      destinationPanel.classList.remove('is-changing');
+      destinationPanel.removeAttribute('aria-busy');
+    }));
   });
   button.addEventListener('keydown', (event) => {
     const keys = ['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft', 'Home', 'End'];

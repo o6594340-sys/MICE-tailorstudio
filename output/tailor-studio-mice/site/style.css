@@ -112,3 +112,34 @@
   .hero-plate:hover{z-index:6;filter:saturate(1.08);box-shadow:0 26px 55px rgba(18,55,71,.2)}
   .hero-plate:hover img{transform:scale(1.055)}
 }
+
+/* Editorial photo polish: the original documentary palette stays intact, with clearer cues and calmer labels. */
+.tone-day{--image-treatment:brightness(1.01) contrast(1.015) saturate(1.035)}
+
+.photo-slot figcaption{inset:auto 20px 18px;gap:4px;transition:opacity .26s var(--ease),transform .36s var(--ease)}
+.photo-slot figcaption span{font-size:clamp(20px,2.05vw,34px)}
+.tone-day:after{background:linear-gradient(180deg,transparent 40%,rgba(18,55,71,.56))}
+.tone-night:after{background:linear-gradient(180deg,transparent 36%,rgba(18,55,71,.82))}
+
+@media(hover:hover) and (pointer:fine){
+  .photo-slot:hover img{transform:scale(1.012)}
+}
+@media(hover:none), (pointer:coarse){
+  .photo-slot:hover img{transform:none}
+}
+
+.statement-collage-wrap{grid-column:1/-1;position:relative;min-width:0;max-width:100%;margin-top:52px}
+.statement-collage{min-width:0;max-width:100%;margin-top:0;cursor:grab}
+.statement-collage:active{cursor:grabbing}
+.statement-collage-wrap:after{content:"";pointer-events:none;position:absolute;z-index:2;right:0;bottom:16px;width:min(10vw,110px);height:calc(100% - 34px);background:linear-gradient(90deg,transparent,var(--paper))}
+.statement-collage-hint{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin:0 0 8px;color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.statement-collage-hint svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5}
+
+.format-preview img,.destination-photo img{transition:opacity .32s var(--ease),transform .5s var(--ease),filter .32s var(--ease)}
+.format-preview figcaption,.destination-photo figcaption,.destination-panel{transition:opacity .28s var(--ease),transform .38s var(--ease)}
+.format-preview.is-changing img,.destination-photo.is-changing img{opacity:.1;transform:scale(1.025);filter:blur(1px)}
+.format-preview.is-changing figcaption,.destination-photo.is-changing figcaption,.destination-panel.is-changing{opacity:.18;transform:translateY(8px)}
+
+@media(max-width:1100px){.statement-collage-wrap{grid-column:1/3}}
+@media(max-width:800px){.statement-collage-wrap{grid-column:auto;margin-top:12px}.statement-collage-wrap:after{width:18vw;bottom:14px;height:calc(100% - 32px)}.statement-collage-hint{justify-content:flex-start;margin-left:2px}}
+@media(prefers-reduced-motion:reduce){.hero-plate,.hero-plate img,.format-preview img,.destination-photo img,.format-preview figcaption,.destination-photo figcaption,.destination-panel{transition:none!important;transform:none!important;filter:none!important}}

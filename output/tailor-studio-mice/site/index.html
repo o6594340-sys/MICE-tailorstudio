@@ -57,8 +57,8 @@
    <div class="hero-scene" aria-label="A visual collage of garden, canal and embroidery details from China">
     <figure class="hero-plate hero-plate--garden"><img src="assets/gallery/hero-tea-plantation.jpg" alt="Terraced tea fields across a green hillside in China" fetchpriority="high" decoding="async"></figure>
     <figure class="hero-plate hero-plate--canal"><img src="assets/gallery/hero-suzhou-boats.jpg" alt="Traditional wooden boats on a sunlit canal in Suzhou" fetchpriority="high" decoding="async"></figure>
-    <figure class="hero-plate hero-plate--embroidered"><img src="assets/gallery/detail-embroidery.jpg" alt="Colourful butterfly embroidery on silk" fetchpriority="high" decoding="async"></figure>
-   <figure class="hero-plate hero-plate--umbrellas"><img src="assets/gallery/format-incentives-umbrellas.jpg" alt="Colourful Chinese umbrellas and lanterns suspended overhead" fetchpriority="high" decoding="async"></figure>
+    <figure class="hero-plate hero-plate--embroidered"><img src="assets/gallery/detail-embroidery.jpg" alt="Colourful butterfly embroidery on silk" loading="lazy" decoding="async"></figure>
+   <figure class="hero-plate hero-plate--umbrellas"><img src="assets/gallery/format-incentives-umbrellas.jpg" alt="Colourful Chinese umbrellas and lanterns suspended overhead" loading="lazy" decoding="async"></figure>
    </div>
    <div class="scroll-cue" aria-hidden="true"><span>Explore</span><i></i></div>
   </section>
@@ -69,12 +69,15 @@
     <p>China is not one destination. Its cities move at different speeds and reward different kinds of programmes.</p>
     <p>We start with why the group is travelling, then shape the route, format and sourcing brief around it.</p>
    </div>
-   <div class="statement-collage" aria-label="A scrollable collection of China moments" tabindex="0">
-    <figure class="photo-slot photo-slot--portrait tone-day"><img src="assets/gallery/street-shanghai.jpg" alt="A busy pedestrian street framed by traditional Shanghai architecture" loading="lazy" decoding="async"><figcaption><span>Street life</span><small>real photograph · Shanghai</small></figcaption></figure>
-    <figure class="photo-slot photo-slot--detail tone-day"><img src="assets/gallery/detail-made-by-hand.jpg" alt="Hands holding an embroidery hoop with birds and cherry blossom" loading="lazy" decoding="async"><figcaption><span>Made by hand</span><small>real photograph · embroidery detail</small></figcaption></figure>
-    <figure class="photo-slot photo-slot--canal tone-day"><img src="assets/gallery/destination-suzhou-canal.jpg" alt="Traditional Suzhou canal with a covered wooden boat and lantern-lined houses" loading="lazy" decoding="async"><figcaption><span>Canal pace</span><small>real photograph · Suzhou</small></figcaption></figure>
-    <figure class="photo-slot photo-slot--garden tone-day"><img src="assets/gallery/hero-tea-plantation.jpg" alt="Terraced tea fields across a green hillside in China" loading="lazy" decoding="async"><figcaption><span>Green horizon</span><small>real photograph · tea country</small></figcaption></figure>
-    <figure class="photo-slot photo-slot--night tone-night"><img src="assets/gallery/destination-chongqing-night-bridge.jpg" alt="Illuminated Chongqing skyline and cable-stayed bridge at night" loading="lazy" decoding="async"><figcaption><span>After dark</span><small>real photograph · Chongqing</small></figcaption></figure>
+   <div class="statement-collage-wrap">
+    <p class="statement-collage-hint" id="curiosity-scroll-hint">Swipe to explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></p>
+    <div class="statement-collage" aria-label="A scrollable collection of China moments" aria-describedby="curiosity-scroll-hint" tabindex="0">
+     <figure class="photo-slot photo-slot--portrait tone-day"><img src="assets/gallery/street-shanghai.jpg" alt="A busy pedestrian street framed by traditional Shanghai architecture" loading="lazy" decoding="async"><figcaption><span>Street life</span><small>real photograph · Shanghai</small></figcaption></figure>
+     <figure class="photo-slot photo-slot--detail tone-day"><img src="assets/gallery/detail-made-by-hand.jpg" alt="Hands holding an embroidery hoop with birds and cherry blossom" loading="lazy" decoding="async"><figcaption><span>Made by hand</span><small>real photograph · embroidery detail</small></figcaption></figure>
+     <figure class="photo-slot photo-slot--canal tone-day"><img src="assets/gallery/destination-suzhou-canal.jpg" alt="Traditional Suzhou canal with a covered wooden boat and lantern-lined houses" loading="lazy" decoding="async"><figcaption><span>Canal pace</span><small>real photograph · Suzhou</small></figcaption></figure>
+     <figure class="photo-slot photo-slot--garden tone-day"><img src="assets/gallery/hero-tea-plantation.jpg" alt="Terraced tea fields across a green hillside in China" loading="lazy" decoding="async"><figcaption><span>Green horizon</span><small>real photograph · tea country</small></figcaption></figure>
+     <figure class="photo-slot photo-slot--night tone-night"><img src="assets/gallery/destination-chongqing-night-bridge.jpg" alt="Illuminated Chongqing skyline and cable-stayed bridge at night" loading="lazy" decoding="async"><figcaption><span>After dark</span><small>real photograph · Chongqing</small></figcaption></figure>
+    </div>
    </div>
   </section>
 
@@ -84,7 +87,7 @@
      <h2 id="formats-heading">What brings<br>people together?</h2>
      <p>The business goal comes first. We choose the format, setting and pace that help people meet, think and connect.</p>
     </div>
-    <figure class="format-preview photo-slot tone-indoor">
+    <figure class="format-preview photo-slot tone-indoor" aria-live="polite">
      <img src="assets/gallery/format-meetings.jpg" alt="Meeting room arranged for a corporate session" loading="lazy" decoding="async">
      <figcaption><span>Meetings</span><small>business-ready setting · real photograph</small></figcaption>
     </figure>
@@ -108,11 +111,11 @@
      <figcaption><span>Shanghai</span><small>heritage and a vertical future</small></figcaption>
     </figure>
     <div class="destination-content">
-     <div class="destination-tabs" role="tablist" aria-label="Explore destination inspiration">
-      <button type="button" role="tab" aria-selected="true" aria-controls="destination-panel" id="tab-shanghai" data-city="Shanghai" data-theme="heritage and a vertical future" data-image="assets/gallery/destination-shanghai.jpg" data-alt="Traditional tiled roofs with the modern Shanghai skyline beyond" data-copy="Contemporary venues, ambitious city energy and a strong frame for meetings, dining and incentive programmes.">Shanghai <span>上海</span></button>
-      <button type="button" role="tab" aria-selected="false" aria-controls="destination-panel" id="tab-suzhou" data-city="Suzhou" data-theme="gardens, water and measured pace" data-image="assets/gallery/destination-suzhou-canal.jpg" data-alt="Traditional Suzhou canal with a covered wooden boat and lantern-lined houses" data-copy="Gardens, canals and craft traditions create a quieter counterpoint for cultural encounters and team connection.">Suzhou <span>苏州</span></button>
-      <button type="button" role="tab" aria-selected="false" aria-controls="destination-panel" id="tab-chongqing" data-city="Chongqing" data-theme="movement across a vertical city" data-image="assets/gallery/destination-chongqing-river-bridge.jpg" data-alt="Chongqing skyline, river and cable-stayed bridge in daylight" data-copy="Layered streets, dramatic transport and bold food culture give incentive routes a distinctly energetic rhythm.">Chongqing <span>重庆</span></button>
-      <button type="button" role="tab" aria-selected="false" aria-controls="destination-panel" id="tab-jiangnan" data-city="Jiangnan" data-theme="canals and living water towns" data-image="assets/gallery/destination-jiangnan-water-town.jpg" data-alt="Traditional Jiangnan water town with boats along a canal" data-copy="Water towns and close cultural detail can soften a city programme with a slower, more intimate chapter.">Jiangnan <span>江南</span></button>
+     <div class="destination-tabs" role="tablist" aria-orientation="vertical" aria-label="Explore destination inspiration">
+      <button type="button" role="tab" tabindex="0" aria-selected="true" aria-controls="destination-panel" id="tab-shanghai" data-city="Shanghai" data-theme="heritage and a vertical future" data-image="assets/gallery/destination-shanghai.jpg" data-alt="Traditional tiled roofs with the modern Shanghai skyline beyond" data-copy="Contemporary venues, ambitious city energy and a strong frame for meetings, dining and incentive programmes.">Shanghai <span>上海</span></button>
+      <button type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="destination-panel" id="tab-suzhou" data-city="Suzhou" data-theme="gardens, water and measured pace" data-image="assets/gallery/destination-suzhou-canal.jpg" data-alt="Traditional Suzhou canal with a covered wooden boat and lantern-lined houses" data-copy="Gardens, canals and craft traditions create a quieter counterpoint for cultural encounters and team connection.">Suzhou <span>苏州</span></button>
+      <button type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="destination-panel" id="tab-chongqing" data-city="Chongqing" data-theme="movement across a vertical city" data-image="assets/gallery/destination-chongqing-river-bridge.jpg" data-alt="Chongqing skyline, river and cable-stayed bridge in daylight" data-copy="Layered streets, dramatic transport and bold food culture give incentive routes a distinctly energetic rhythm.">Chongqing <span>重庆</span></button>
+      <button type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="destination-panel" id="tab-jiangnan" data-city="Jiangnan" data-theme="canals and living water towns" data-image="assets/gallery/destination-jiangnan-water-town.jpg" data-alt="Traditional Jiangnan water town with boats along a canal" data-copy="Water towns and close cultural detail can soften a city programme with a slower, more intimate chapter.">Jiangnan <span>江南</span></button>
      </div>
      <div class="destination-panel" id="destination-panel" role="tabpanel" aria-labelledby="tab-shanghai">
       <p>Contemporary venues, ambitious city energy and a strong frame for meetings, dining and incentive programmes.</p>
