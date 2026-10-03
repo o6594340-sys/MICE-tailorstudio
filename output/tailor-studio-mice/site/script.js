@@ -30,7 +30,7 @@ if (heroScene && !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
 }
 
 const menuLabels = {
-  china: ['Living China', 'streets after dark · real photograph'],
+  china: ['Living China', 'streets after dark'],
   formats: ['Shared purpose', 'from meeting room to banquet hall'],
   destinations: ['Many energies', 'city, garden, mountain, water'],
   sourcing: ['Local mix', 'hospitality and venues at scale'],
