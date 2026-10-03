@@ -120,6 +120,7 @@ document.querySelectorAll('.format-row').forEach((button) => {
     });
     button.classList.add('is-active');
     button.setAttribute('aria-pressed', 'true');
+    formatPreview.dataset.format = button.dataset.title.toLowerCase();
     formatPreview.querySelector('span').textContent = button.dataset.title;
     formatPreview.querySelector('small').textContent = button.dataset.note;
     swapMedia(formatPreview, button.dataset.image, button.dataset.alt);
