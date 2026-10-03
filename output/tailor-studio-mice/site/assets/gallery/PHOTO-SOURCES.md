@@ -18,7 +18,7 @@ The JPEGs in this folder are display derivatives: EXIF orientation applied, long
 - `format-events.jpg` — batch 04 / `IMG_0849.jpeg`
 - `destination-shanghai.jpg` — batch 04 / `IMG_0817.jpeg`
 - `destination-suzhou-canal.jpg` — user-supplied / `суджоу 1.jpg`, 2026-10-03
-- `destination-chongqing.jpg` — batch 01 / `IMG_0608.jpeg`
+- `destination-chongqing-night-bridge.jpg` — user-supplied / `чонцин.jpg`, 2026-10-03
 - `destination-jiangnan.jpg` — batch 03 / `IMG_0734.jpeg`
 - `destination-jiangnan-water-town.jpg` — user-supplied / `jiagnan.jpg`, 2026-10-03
 - `sourcing-hotel.jpg` — batch 04 / `IMG_0858.jpeg`
