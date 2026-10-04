@@ -1,4 +1,5 @@
 name: Deploy Tailor Studio site
+# GitHub Pages is enabled in repository settings; every relevant push redeploys the site.
 
 on:
   push:
