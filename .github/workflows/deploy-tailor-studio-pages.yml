@@ -1,0 +1,40 @@
+name: Deploy Tailor Studio site
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'output/tailor-studio-mice/site/**'
+      - '.github/workflows/deploy-tailor-studio-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: tailorstudio-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output/tailor-studio-mice/site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
